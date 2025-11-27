@@ -1417,9 +1417,14 @@ function PopupForm({ externalShow, setExternalShow }) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: "spring", duration: 0.5 }}
-            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] max-w-lg z-[101]"
+            className="
+  fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 
+  w-[95%] max-w-lg z-[101]
+  max-h-[90vh]
+"
+
           >
-            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden mx-auto w-full">
 
               {/* Header with gradient */}
               <div className="relative bg-gradient-to-r from-blue-600 to-blue-700 p-6 text-white">
@@ -1450,128 +1455,132 @@ function PopupForm({ externalShow, setExternalShow }) {
               </div>
 
               {/* Form */}
-              <form onSubmit={handleSubmit} className="p-6 space-y-4">
+              <div className="p-6 pt-4 pb-6 max-h-[60vh] overflow-y-auto">
+                <form onSubmit={handleSubmit} className="space-y-4">
 
-                {/* Name */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Full Name <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="Enter your name"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-                  />
-                </div>
 
-                {/* Phone */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Phone Number <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="tel"
-                    required
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+91 XXXXX XXXXX"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-                  />
-                </div>
 
-                {/* Email */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Email Address <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="your.email@example.com"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-                  />
-                </div>
+                  {/* Name */}
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Full Name <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      placeholder="Enter your name"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                    />
+                  </div>
 
-                {/* Plot Size */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Plot Size (Optional)
-                  </label>
-                  <select
-                    value={formData.plotSize}
-                    onChange={(e) => setFormData({ ...formData, plotSize: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition"
-                  >
-                    <option value="">Select a plot size</option>
-                    <option value="100 Sq.Yard">100 Sq. Yard</option>
-                    <option value="150 Sq.Yard">150 Sq. Yard</option>
-                    <option value="200 Sq.Yard">200 Sq. Yard</option>
-                    <option value="300 Sq.Yard">300 Sq. Yard</option>
-                    <option value="500 Sq.Yard">500 Sq. Yard</option>
-                  </select>
-                </div>
+                  {/* Phone */}
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Phone Number <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      placeholder="+91 XXXXX XXXXX"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                    />
+                  </div>
 
-                {/* Budget */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Budget Range (Optional)
-                  </label>
-                  <select
-                    value={formData.budget}
-                    onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition"
-                  >
-                    <option value="">Select a budget</option>
-                    <option value="Under 15 Lakhs">Under 15 Lakhs</option>
-                    <option value="15–25 Lakhs">15–25 Lakhs</option>
-                    <option value="25–40 Lakhs">25–40 Lakhs</option>
-                    <option value="40 Lakhs – 1 Cr">40 Lakhs – 1 Cr</option>
-                    <option value="Above 1 Cr">Above 1 Cr</option>
-                  </select>
-                </div>
+                  {/* Email */}
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Email Address <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder="your.email@example.com"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                    />
+                  </div>
 
-                {/* Message */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Message / Requirements (Optional)
-                  </label>
-                  <textarea
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Tell us about your requirements..."
-                    rows={3}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none resize-none transition"
-                  ></textarea>
-                </div>
+                  {/* Plot Size */}
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Plot Size (Optional)
+                    </label>
+                    <select
+                      value={formData.plotSize}
+                      onChange={(e) => setFormData({ ...formData, plotSize: e.target.value })}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition"
+                    >
+                      <option value="">Select a plot size</option>
+                      <option value="100 Sq.Yard">100 Sq. Yard</option>
+                      <option value="150 Sq.Yard">150 Sq. Yard</option>
+                      <option value="200 Sq.Yard">200 Sq. Yard</option>
+                      <option value="300 Sq.Yard">300 Sq. Yard</option>
+                      <option value="500 Sq.Yard">500 Sq. Yard</option>
+                    </select>
+                  </div>
 
-                {/* Buttons */}
-                <div className="flex gap-3 pt-2">
-                  <button
-                    type="button"
-                    onClick={handleClose}
-                    className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition-all"
-                  >
-                    Maybe Later
-                  </button>
-                  <button
-                    type="submit"
-                    className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-all shadow-lg hover:shadow-xl"
-                  >
-                    Get Details
-                  </button>
-                </div>
+                  {/* Budget */}
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Budget Range (Optional)
+                    </label>
+                    <select
+                      value={formData.budget}
+                      onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition"
+                    >
+                      <option value="">Select a budget</option>
+                      <option value="Under 15 Lakhs">Under 15 Lakhs</option>
+                      <option value="15–25 Lakhs">15–25 Lakhs</option>
+                      <option value="25–40 Lakhs">25–40 Lakhs</option>
+                      <option value="40 Lakhs – 1 Cr">40 Lakhs – 1 Cr</option>
+                      <option value="Above 1 Cr">Above 1 Cr</option>
+                    </select>
+                  </div>
 
-                <p className="text-xs text-center text-gray-500 pt-2">
-                  🔒 Your information is safe and secure with us
-                </p>
-              </form>
+                  {/* Message */}
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Message / Requirements (Optional)
+                    </label>
+                    <textarea
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      placeholder="Tell us about your requirements..."
+                      rows={3}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none resize-none transition"
+                    ></textarea>
+                  </div>
 
-            </div>
+                  {/* Buttons */}
+                  <div className="flex gap-3 pt-2">
+                    <button
+                      type="button"
+                      onClick={handleClose}
+                      className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition-all"
+                    >
+                      Maybe Later
+                    </button>
+                    <button
+                      type="submit"
+                      className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-all shadow-lg hover:shadow-xl"
+                    >
+                      Get Details
+                    </button>
+                  </div>
+
+                  <p className="text-xs text-center text-gray-500 pt-2">
+                    🔒 Your information is safe and secure with us
+                  </p>
+                </form>
+
+              </div>
+              </div>
           </motion.div>
         </>
       )}
