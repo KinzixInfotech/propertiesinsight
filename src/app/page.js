@@ -986,7 +986,7 @@ export default function TSBuildTechLanding() {
             >
               <h3 className="text-2xl font-bold mb-6 text-gray-900">Send us a message</h3>
 
-              <div className="space-y-5 flex-grow">
+              <div className="space-y-5 ">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
                   <input
@@ -1438,7 +1438,6 @@ function PopupForm({ externalShow, setExternalShow }) {
                       City <span className="text-red-500">*</span>
                     </label>
                     <input
-                      type="tel"
                       required
                       value={formData.city}
                       onChange={(e) => setFormData({ ...formData, city: e.target.value })}
