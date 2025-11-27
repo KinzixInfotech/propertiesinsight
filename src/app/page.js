@@ -442,7 +442,7 @@ export default function TSBuildTechLanding() {
             className="bg-gray-900 text-white px-3 py-8 text-sm font-semibold hover:bg-gray-800 transition shadow-lg"
             style={{ writingMode: "vertical-rl" }}
           >
-            BOOK NOW
+           ENQUIRY NOW
           </button>
         </div>
       </section>
@@ -1525,7 +1525,7 @@ function PopupForm({ externalShow, setExternalShow }) {
                   </div>
 
                   {/* Budget */}
-                  <div>
+                  {/* <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Budget Range (Optional)
                     </label>
@@ -1541,7 +1541,7 @@ function PopupForm({ externalShow, setExternalShow }) {
                       <option value="40 Lakhs – 1 Cr">40 Lakhs – 1 Cr</option>
                       <option value="Above 1 Cr">Above 1 Cr</option>
                     </select>
-                  </div>
+                  </div> */}
 
                   {/* Message */}
                   <div>
@@ -1580,7 +1580,7 @@ function PopupForm({ externalShow, setExternalShow }) {
                 </form>
 
               </div>
-              </div>
+            </div>
           </motion.div>
         </>
       )}
