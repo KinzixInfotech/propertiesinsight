@@ -434,7 +434,7 @@ export default function TSBuildTechLanding() {
         </div>
 
         {/* BOOK NOW - Fixed Left */}
-        <div className="fixed left-0 top-1/2 -translate-y-1/2 z-40 hidden sm:block">
+        {/* <div className="fixed left-0 top-1/2 -translate-y-1/2 z-40 hidden sm:block">
           <button
             onClick={() =>
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
@@ -442,9 +442,21 @@ export default function TSBuildTechLanding() {
             className="bg-gray-900 text-white px-3 py-8 text-sm font-semibold hover:bg-gray-800 transition shadow-lg"
             style={{ writingMode: "vertical-rl" }}
           >
-           ENQUIRY NOW
+            ENQUIRY NOW
           </button>
-        </div>
+        </div> */}
+<div className="fixed left-0 top-1/2 -translate-y-1/2 z-40">
+  <button
+    onClick={() =>
+      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+    }
+    className="bg-gray-900 text-white font-semibold hover:bg-gray-800 transition shadow-lg rounded-r-md px-1 py-5 text-[10px] sm:px-3 sm:py-8 sm:text-sm"
+    style={{ writingMode: 'vertical-rl' }}
+  >
+    ENQUIRY NOW
+  </button>
+</div>
+
       </section>
 
       {/* Ticker */}
@@ -566,100 +578,103 @@ export default function TSBuildTechLanding() {
 
 
       {/* Plot Sizes Section */}
-      <section ref={plotSectionRef} id="plot-size" className="relative py-24 bg-gradient-to-br from-green-50 via-white to-blue-50 overflow-hidden">
-        {/* Decorative Background Elements */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-green-100 rounded-full blur-3xl opacity-20 -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-20 translate-x-1/2 translate-y-1/2"></div>
+      <section
+        ref={plotSectionRef}
+        id="plot-size"
+        className="relative py-16 md:py-20 bg-gradient-to-br from-green-50 via-white to-blue-50 overflow-hidden"
+      >
+        {/* Background Elements */}
+        <div className="absolute top-0 left-0 w-64 h-64 bg-green-100 rounded-full blur-3xl opacity-20 -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-20 translate-x-1/2 translate-y-1/2"></div>
 
         <div className="container mx-auto px-4 relative z-10">
+          {/* Heading */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
-            data-aos="fade-up"
+            className="text-center mb-12"
           >
-            <span className="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full font-semibold mb-4">
-              🏡 Plot
+            <span className="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full font-medium text-sm mb-3">
+              🏡 Plot Options
             </span>
-            <h2 className="text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 bg-gradient-to-r from-gray-800 to-gray-600 text-transparent bg-clip-text">
               Premium Plot Options
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Select from our range of thoughtfully designed plots with flexible sizing and competitive pricing
+
+            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+              Select from our range of thoughtfully designed plots with flexible sizing and perfect pricing
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-8 mb-16">
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mb-10">
             {siteContent.plotSizes.map((plot, i) => (
               <div
                 key={i}
-                className="plot-card group relative"
                 data-aos="fade-up"
-                data-aos-delay={i * 150}
+                data-aos-delay={i * 100}
+                className="relative group plot-card"
               >
-                {/* Card Background with Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white to-green-50 rounded-3xl transform group-hover:scale-105 transition-transform duration-300"></div>
+                {/* Gradient Border */}
+                <div className="absolute inset-0 bg-gradient-to-br from-green-400 via-blue-400 to-green-500 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity p-[2px]"></div>
 
-                {/* Border Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-green-400 via-blue-400 to-green-500 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-[2px]">
-                  <div className="w-full h-full bg-white rounded-3xl"></div>
-                </div>
+                <div className="relative bg-white rounded-2xl shadow-lg p-6 border border-green-100 group-hover:border-transparent transition-all">
 
-                <div className="relative bg-white rounded-3xl shadow-xl p-8 border-2 border-green-100 group-hover:border-transparent transition-all duration-300">
                   {/* Icon */}
-                  <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-14 h-14 bg-gradient-to-br from-green-400 to-green-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition">
+                    <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                     </svg>
                   </div>
 
-                  {/* Plot Size */}
-                  <h3 className="text-3xl font-bold mb-3 text-gray-800 group-hover:text-green-600 transition-colors">
+                  {/* Size */}
+                  <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
                     {plot.size}
                   </h3>
 
-                  <div className="flex items-baseline gap-2 mb-6">
-                    <span className="text-sm text-gray-500">Starting at</span>
+                  {/* Prices */}
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="text-xs text-gray-500">Starting at</span>
 
-                    {plot.oldPrice && plot.oldPrice !== "₹—" && (
-                      <span className="text-lg text-gray-400 line-through mr-2">
-                        {plot.oldPrice}
-                      </span>
+                    {plot.oldPrice && (
+                      <span className="text-sm text-gray-400 line-through">{plot.oldPrice}</span>
                     )}
 
-                    <span className="text-2xl font-bold text-green-600">
+                    <span className="text-xl md:text-2xl font-bold text-green-600">
                       {plot.price}
                     </span>
                   </div>
 
-
                   {/* Features */}
-                  <ul className="space-y-3 mb-6">
-                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                  <ul className="space-y-2 mb-5">
+                    <li className="flex items-center gap-2 text-xs md:text-sm text-gray-600">
                       <FaCheckCircle className="text-green-500" />
-                      <span>ADA Approved Property</span>
+                      ADA Approved Property
                     </li>
-                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                    <li className="flex items-center gap-2 text-xs md:text-sm text-gray-600">
                       <FaCheckCircle className="text-green-500" />
-                      <span>Clear Title Deed</span>
+                      Clear Title Deed
                     </li>
-                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                    <li className="flex items-center gap-2 text-xs md:text-sm text-gray-600">
                       <FaCheckCircle className="text-green-500" />
-                      <span>Possession After 30% Payment</span>
+                      Possession After 30% Payment
                     </li>
                   </ul>
 
-                  {/* CTA Button */}
-
-                  <button onClick={() => setShowPopup(true)} className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-4 rounded-xl font-bold hover:from-green-600 hover:to-green-700 transition-all shadow-lg hover:shadow-xl group-hover:shadow-green-500/50">
+                  {/* CTA */}
+                  <button
+                    onClick={() => setShowPopup(true)}
+                    className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-3 rounded-lg font-semibold hover:from-green-600 hover:to-green-700 transition shadow-md"
+                  >
                     Book Now
                   </button>
 
-                  {/* Bestseller Badge */}
+                  {/* Badge */}
                   {i === 1 && (
-                    <div className="absolute -top-4 -right-4 bg-gradient-to-r from-amber-400 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg rotate-12">
+                    <div className="absolute -top-3 -right-3 bg-gradient-to-r from-amber-400 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md rotate-6">
                       🔥 Bestseller
                     </div>
                   )}
@@ -667,84 +682,9 @@ export default function TSBuildTechLanding() {
               </div>
             ))}
           </div>
-
-          {/* Contact Form Below */}
-          {/* <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="bg-white/80 backdrop-blur-xl rounded-3xl p-10 max-w-5xl mx-auto border-1 border-gray-100 shadow-xs"
-            data-aos="fade-up"
-          >
-            <div className="text-center mb-8">
-              <h3 className="text-4xl font-bold mb-3 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
-                Get Personalized Assistance
-              </h3>
-              <p className="text-gray-600">Our team will help you choose the perfect plot for your needs</p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-semibold mb-2 text-gray-700">Full Name</label>
-                <input
-                  type="text"
-                  placeholder="Enter your name"
-                  className="w-full px-5 py-4 border border-gray-200 rounded-xl focus:ring-1 focus:ring-green-500 focus:border-green-500 outline-none transition-all"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold mb-2 text-gray-700">Phone Number</label>
-                <input
-                  type="tel"
-                  placeholder="+91 XXXXX XXXXX"
-                  className="w-full px-5 py-4 border border-gray-200 rounded-xl focus:ring-1 focus:ring-green-500 focus:border-green-500 outline-none transition-all"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold mb-2 text-gray-700">Email Address</label>
-                <input
-                  type="email"
-                  placeholder="your.email@example.com"
-                  className="w-full px-5 py-4 border border-gray-200 rounded-xl focus:ring-1 focus:ring-green-500 focus:border-green-500 outline-none transition-all"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold mb-2 text-gray-700">City</label>
-                <input
-                  type="text"
-                  placeholder="Enter your city"
-                  className="w-full px-5 py-4 border border-gray-200 rounded-xl focus:ring-1 focus:ring-green-500 focus:border-green-500 outline-none transition-all"
-                />
-              </div>
-            </div>
-            <button
-              onClick={handleSubmit}
-              className="w-full mt-8 bg-gradient-to-r from-green-500 to-green-600 text-white py-5 rounded-xl font-bold hover:from-green-600 hover:to-green-700 transition-all text-lg shadow-lg hover:shadow-xl"
-            >
-              REQUEST CALLBACK
-            </button>
-          </motion.div> */}
-          {/* <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-            data-aos="fade-up"
-          >
-            <div className='flex items-center justify-center'>
-              <button
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-gray-900 w-60 text-white px-3 py-6 rounded-lg text-sm font-semibold hover:bg-gray-800 transition shadow-lg"
-              // style={{ writingMode: 'vertical-rl' }}
-              >
-                BOOK NOW
-              </button>
-            </div>
-          </motion.div> */}
         </div>
       </section>
+
 
       {/* Why Section */}
       <section className="py-20 bg-white reveal-section">
@@ -1318,6 +1258,7 @@ function PopupForm({ externalShow, setExternalShow }) {
     email: "",
     message: "",
     plotSize: "",
+    city: "",
     budget: "",
   });
 
@@ -1504,7 +1445,19 @@ function PopupForm({ externalShow, setExternalShow }) {
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
                     />
                   </div>
-
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      City <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      value={formData.city}
+                      onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                      placeholder="City"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                    />
+                  </div>
                   {/* Plot Size */}
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
