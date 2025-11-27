@@ -446,7 +446,7 @@ export default function TSBuildTechLanding() {
           </button>
         </div>
       </section>
-
+ 
       {/* Ticker */}
       <div className="bg-gray-900 text-white py-4 overflow-hidden">
         <div className="animate-marquee whitespace-nowrap inline-block">
@@ -987,7 +987,7 @@ export default function TSBuildTechLanding() {
               <h3 className="text-2xl font-bold mb-6 text-gray-900">Send us a message</h3>
 
               <div className="space-y-5 ">
-                <div>
+                <div className='relative overflow-hidden'>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
                   <input
                     type="text"
