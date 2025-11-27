@@ -434,29 +434,17 @@ export default function TSBuildTechLanding() {
         </div>
 
         {/* BOOK NOW - Fixed Left */}
-        {/* <div className="fixed left-0 top-1/2 -translate-y-1/2 z-40 hidden sm:block">
+        <div className="fixed lg:left-0 right-3 top-1/2 lg:-translate-y-1/2 -translate-y-1/2 z-40 ">
           <button
             onClick={() =>
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
             }
-            className="bg-gray-900 text-white px-3 py-8 text-sm font-semibold hover:bg-gray-800 transition shadow-lg"
+            className="bg-gray-900 text-white lg:px-3 px-1 lg:py-8 py-2 text-sm font-semibold hover:bg-gray-800 transition shadow-lg"
             style={{ writingMode: "vertical-rl" }}
           >
             ENQUIRY NOW
           </button>
-        </div> */}
-<div className="fixed left-0 top-1/2 -translate-y-1/2 z-40">
-  <button
-    onClick={() =>
-      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-    }
-    className="bg-gray-900 text-white font-semibold hover:bg-gray-800 transition shadow-lg rounded-r-md px-1 py-5 text-[10px] sm:px-3 sm:py-8 sm:text-sm"
-    style={{ writingMode: 'vertical-rl' }}
-  >
-    ENQUIRY NOW
-  </button>
-</div>
-
+        </div>
       </section>
 
       {/* Ticker */}
