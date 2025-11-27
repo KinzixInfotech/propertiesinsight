@@ -434,7 +434,7 @@ export default function TSBuildTechLanding() {
         </div>
 
         {/* BOOK NOW - Fixed Left */}
-        <div className="fixed lg:left-0 right-3 top-1/2 lg:-translate-y-1/2 -translate-y-1/2 z-40 ">
+        <div className="fixed lg:left-0 right-4 top-1/2 lg:-translate-y-1/2 -translate-y-1/2 z-40 ">
           <button
             onClick={() =>
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
