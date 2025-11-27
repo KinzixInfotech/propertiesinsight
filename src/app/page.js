@@ -1390,7 +1390,7 @@ function PopupForm({ externalShow, setExternalShow }) {
 
 
                   {/* Name */}
-                  <div>
+                  <div className='overflow-hidden relative'>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Full Name <span className="text-red-500">*</span>
                     </label>
