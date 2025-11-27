@@ -5,3 +5,171 @@
     }
   }
 }
+// const siteContent = {
+//   header: {
+//     logo: "TS BUILDTECH",
+//     phone: "+91 9205052600",
+//     email: "info@plotnearjewar.com",
+//     nav: ["Home", "Project", "Amenities", "Plot Size", "Location Map", "Why Yeida?", "Contact"]
+//   },
+//   hero: {
+//     title: "Plot Near Jewar Airport",
+//     subtitle: "Best Investment Opportunity",
+//     features: [
+//       "Free Hold Property",
+//       "Minimum Size 100 Sq. Yards",
+//       "High Return! Investment Guaranteed",
+//       "Affordable Options with Future Growth Potential",
+//       "Enhances Connectivity to Delhi, Noida, Gurgaon, Faridabad, Ghaziabad."
+//     ],
+//     startingPrice: "Starting Just ₹16000/-",
+//     formTitle: "BOOK YOUR DREAM PLOT"
+//   },
+//   about: {
+//     title: "TS Build Tech Pvt. Ltd.",
+//     description1: "TS Group Projects is located near jewar international airport which is located on Yamuna expressway. It's a premium option and a 'Great place to live' is a gated community with 24x7 security and maintenance services that ensures no compromise either on luxury or on the peace of mind. Combining the simplest of old-world charm with new-age facilities, TS Group guarantees closeness of like people of the society as an excellent neighborhood, simple accessibility, open areas, uninterrupted maintenance and therefore, freedom to make your dream-house is that the essence of this development.",
+//     description2: "Township with an existing client base from varied domains of society consisting of Government/Public Sectors and MNC workers, Serving & Retired workers of central, state governments, Doctors, Chartered accountants, Teachers, Engineers, Bank workers, Defence force, Self used etc.",
+//     stats: [
+//       { number: "3+", label: "Township Sold", icon: "home" },
+//       { number: "507+", label: "Our Team", icon: "users" },
+//       { number: "5,600+", label: "Acres Area Sold", icon: "check" }
+//     ]
+//   },
+//   amenities: [
+//     { title: "CCTV Camera", subtitle: "Hare Krishna Township Phase-2" },
+//     { title: "24/7 Security", subtitle: "Hare Krishna Township Phase-2" },
+//     { title: "Childern Park", subtitle: "Hare Krishna Township Phase-2" },
+//     { title: "Street Light", subtitle: "Hare Krishna Township Phase-2" },
+//     { title: "Wide Road", subtitle: "Hare Krishna Township Phase-2" },
+//     { title: "Temple", subtitle: "Hare Krishna Township Phase-2" },
+//     { title: "Society Roads", subtitle: "Hare Krishna Township Phase-2" },
+//     { title: "Society Boundary Walls", subtitle: "Hare Krishna Township Phase-2" },
+//     { title: "Commercial Shops", subtitle: "Hare Krishna Township Phase-2" },
+//     { title: "Near By School", subtitle: "Hare Krishna Township Phase-2" },
+//     { title: "Near By Hospital", subtitle: "Hare Krishna Township Phase-2" },
+//     { title: "Near By Highway", subtitle: "Hare Krishna Township Phase-2" }
+//   ],
+//   plotSizes: [
+//     { size: "100 Sq. Yard", price: "₹16 Lacs*" },
+//     { size: "200 Sq. Yard", price: "₹32 Lacs*" },
+//     { size: "300 Sq. Yard", price: "₹48 Lacs*" },
+//     { size: "400 Sq. Yard", price: "As Per Your Request" }
+//   ],
+//   whyYeida: {
+//     title: "Why Yeida?",
+//     subtitle: "At NCR's Most Iconic Destination",
+//     description: "YEIDA stands for Yamuna Expressway Industrial Development Authority and today has the largest industrial land bank in the country which would see rapid development. The initial budget set for YEIDA was Rs. 12,500 crore approximately. With an area of 2,689 sq km under its belt, it is the biggest industrial township project that covers connectivity, industrial development, and infrastructure development. YEIDA also promises to develop smart villages along the 165 km stretch. It is one of the driving forces behind Noida's growth and development. YEIDA's master plan of 2031 predicts rapid and extensive real estate development.",
+//     features: [
+//       "World-class 165 km Yamuna Expressway",
+//       "India's longest 6-lane controlled-access expressway",
+//       "Installed with 'Intelligent Transport System'",
+//       "The faster connection between National Capital Region to Agra and Lucknow",
+//       "The fastest growing Economic Zone",
+//       "Home to the fast developing Noida International Airport",
+//       "Mega Industrial projects are being commissioned in the region ensuring economic upliftment",
+//       "1000 acres Film City announced",
+//       "Another Gurgaon Story getting unfolded",
+//       "Super connectivity with approved Metro and Proposed Mono Rail",
+//       "Zip drive to Noida & Gr. Noida in 15-20 mins",
+//       "The only F1 circuit in the country",
+//       "Multiple Industrial hubs being developed such as Textile Zone, Electronic Zone & Toy City",
+//       "YEIDA Region is currently the economic hotspot of the country"
+//     ],
+//     sections: [
+//       {
+//         title: "The Thriving IT Hub",
+//         points: [
+//           "A large number of IT & ITES companies",
+//           "Various big companies are opening up",
+//           "Growing job opportunities"
+//         ]
+//       },
+//       {
+//         title: "Modern Infrastructure",
+//         points: [
+//           "Wider roads with huge scope for expansion",
+//           "Modern shopping malls & commercial spaces",
+//           "World-class hospitals, schools, colleges & other educational institutes"
+//         ]
+//       },
+//       {
+//         title: "Progressive Government Initiatives",
+//         points: [
+//           "Investment-friendly infrastructure",
+//           "Industrial parks, entertainment zones and SEZs being developed"
+//         ]
+//       },
+//       {
+//         title: "Favourite Amongst Big Investors",
+//         points: [
+//           "Aatm-Nirbhar Bharat - Homegrown Tech giant Infosys is also looking for a big-time investment in Greater Noida.",
+//           "Already made a deal of 650 crores right along Yamuna Expressway"
+//         ]
+//       }
+//     ]
+//   },
+//   testimonials: [
+//     {
+//       name: "Aditya Joshi",
+//       text: "TS Buildtec helped me secure a prime plot in Jewar—transparent dealings and excellent service!",
+//       rating: 5
+//     },
+//     {
+//       name: "Neha",
+//       text: "Trusted TS Buildtech for my farmhouse plot, and they delivered beyond expectations. Highly recommend!",
+//       rating: 5
+//     },
+//     {
+//       name: "Vikram Singh",
+//       text: "Bought a residential plot with full confidence—TS Buildtech reputation is well-deserved!",
+//       rating: 5
+//     },
+//     {
+//       name: "Kavya Iyer",
+//       text: "From search to registration, TS Buildtech made plot buying effortless. Truly reliable!",
+//       rating: 5
+//     },
+//     {
+//       name: "Arjun Mehta",
+//       text: "Best investment decision! TS Buildtech legal team ensured a hassle-free plot purchase.",
+//       rating: 5
+//     },
+//     {
+//       name: "Priya Patel",
+//       text: "Professional guidance, genuine deals. My plot purchase was seamless, thanks to TS Buildtech",
+//       rating: 5
+//     },
+//     {
+//       name: "Sanjay",
+//       text: "No hidden charges, clear documentation—my plot investment with TS Buildtech was smooth and secure.",
+//       rating: 5
+//     },
+//     {
+//       name: "Ananya Reddy",
+//       text: "Great locations, fair pricing, and prompt support. TS Buildtech is the best in real estate!",
+//       rating: 5
+//     },
+//     {
+//       name: "Rahul Sharma",
+//       text: "Exceptional service! TS Buildtech helped me find a high-return plot with zero stress.",
+//       rating: 5
+//     }
+//   ],
+//   faqs: [
+//     "Where is Jewar located, and why is it a good investment for plots?",
+//     "What is the current price range for plots in Jewar?",
+//     "Is the land near Jewar approved by authorities?",
+//     "What are the expected returns on investment (ROI) in Jewar plots?",
+//     "Are there any risks in buying plots near Jewar?",
+//     "What are the upcoming infrastructure projects boosting Jewar's growth?"
+//   ],
+//   footer: {
+//     address: "Khasra No 214, 2nd Floor, Vishwakarma Road Sec 49, Barola Noida",
+//     phone: "+91 9205052600",
+//     disclaimer: "Disclaimer – The content provided on this website is for information purposes only and does not constitute an offer to avail any service. The prices mentioned are subject to change without prior notice and the availability of properties mentioned are not guaranteed. The images are for representation purposes only.",
+//     projectTitle: "Hare Krishna Township Phase-2",
+//     callToAction: "Book Your Site & Visit Today",
+//     paymentOffer: "Same Day Registry on 60 % Payment",
+//     tagline: "Premium Plot for Sale in Jewar\nA Smart Investment Near Noida International Airport!"
+//   }
+// };
