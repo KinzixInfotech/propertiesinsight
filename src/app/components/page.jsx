@@ -8,7 +8,7 @@ const siteContent = {
         // logo: "TS BUILDTECH",
         phone: "+91-83830-91404",
         email: "contact.rashiparjapti@gmail.com",
-        nav: ["Home", "Project", "Amenities", "Plot Size", "Gallery", "Videos", "Why ADA?", "Contact"]
+        nav: ["Project", "Amenities", "Plot Size", "Gallery", "Videos", "Why ADA?", "Contact"]
     },
 }
 
@@ -41,15 +41,16 @@ const Header = () => {
             <header className="bg-white shadow-md sticky top-0 z-50">
                 <div className="container mx-auto px-4 py-4">
                     <div className="flex justify-between items-center">
-                        <div className="flex items-center gap-3">
-                            {/* <div className="w-32 h-12 md:w-36 lg:w-40 bg-gray-200 flex items-center justify-center text-sm text-gray-600">
+                        <a href="/">
+                            <div className="flex items-center gap-3">
+                                {/* <div className="w-32 h-12 md:w-36 lg:w-40 bg-gray-200 flex items-center justify-center text-sm text-gray-600">
                                 
                             </div> */}
-                            <Image width={140} height={100} src={'/logo.png'} priority />
-                            <div className="leading-tight">
+                                <Image width={140} height={100} src={'/logo.png'} priority />
+                                <div className="leading-tight">
+                                </div>
                             </div>
-                        </div>
-
+                        </a>
                         <nav className="hidden lg:flex gap-8">
                             {siteContent.header.nav.map((item, i) => (
                                 <a key={i} href={`#${item.toLowerCase().replace(/\s+/g, '-').replace(/\?/g, '')}`} className="text-gray-700 hover:text-blue-600 font-medium transition">
@@ -59,10 +60,10 @@ const Header = () => {
                         </nav>
 
                         <div className="flex gap-3 items-center">
-                             <a href='tel:+918383091404'>     
-                            <button className="hidden md:block px-6 py-2 border-2 border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition">
-                                Call Now
-                            </button>
+                            <a href='tel:+918383091404'>
+                                <button className="hidden md:block px-6 py-2 border-2 border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition">
+                                    Call Now
+                                </button>
                             </a>
                             <a href='#contact'>                            <button className="hidden md:block px-6 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
                                 Free Site Visit

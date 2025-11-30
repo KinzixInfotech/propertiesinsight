@@ -278,6 +278,7 @@ export default function TSBuildTechLanding() {
     city: '',
     message: ''
   });
+  const [loading, setLoading] = useState(false);
 
   const heroRef = useRef(null);
   const plotSectionRef = useRef(null);
@@ -292,11 +293,33 @@ export default function TSBuildTechLanding() {
     }
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    alert('Thank you for your inquiry! We will contact you soon.');
-    setFormData({ name: '', phone: '', email: '', city: '', message: '' });
+    setLoading(true);
+
+    try {
+      const response = await fetch('https://jewarproperty.in/api/send-email.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        window.location.href = '/thank-you';
+      } else {
+        alert('Failed to send message: ' + (data.error || 'Unknown error'));
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('An error occurred. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
 
@@ -446,7 +469,7 @@ export default function TSBuildTechLanding() {
           </button>
         </div>
       </section>
- 
+
       {/* Ticker */}
       <div className="bg-gray-900 text-white py-4 overflow-hidden">
         <div className="animate-marquee whitespace-nowrap inline-block">
@@ -1051,36 +1074,28 @@ export default function TSBuildTechLanding() {
               </div>
 
               <button
-                onClick={() => {
-                  const mailtoLink =
-                    "mailto:" +
-                    siteContent.footer.email +
-                    "?subject=" +
-                    encodeURIComponent("Contact Form - " + formData.name) +
-                    "&body=" +
-                    encodeURIComponent(
-                      "Name: " +
-                      formData.name +
-                      "\nEmail: " +
-                      formData.email +
-                      "\nPhone: " +
-                      formData.phone +
-                      "\nCity: " +
-                      formData.city +
-                      "\nPlot Size: " +
-                      formData.plotSize +
-                      "\n\nMessage:\n" +
-                      "Customer selected a plot size option."
-                    );
-                  window.location.href = mailtoLink;
-                }}
-                className="w-full bg-gray-900 text-white py-3.5 rounded-lg font-semibold hover:bg-gray-800 transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2 mt-4"
+                type="submit"
+                onClick={handleSubmit}
+                disabled={loading}
+                className="w-full bg-gray-900 text-white py-3.5 rounded-lg font-semibold hover:bg-gray-800 transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2 mt-4 disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                </svg>
-                Send Message
+                {loading ? (
+                  <>
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                    </svg>
+                    Send Message
+                  </>
+                )}
               </button>
             </motion.div>
 
@@ -1249,6 +1264,7 @@ function PopupForm({ externalShow, setExternalShow }) {
     city: "",
     budget: "",
   });
+  const [loading, setLoading] = useState(false);
 
 
   // Combine internal + external control
@@ -1289,31 +1305,35 @@ function PopupForm({ externalShow, setExternalShow }) {
   // ---------------------------
   // ✅ handleSubmit (you lost this earlier)
   // ---------------------------
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
-    const mailtoLink =
-      "mailto:contact.rashiparjapti@gmail.com" +
-      "?subject=" +
-      encodeURIComponent("Quick Inquiry - " + formData.name) +
-      "&body=" +
-      encodeURIComponent(
-        "Name: " +
-        formData.name +
-        "\nPhone: " +
-        formData.phone +
-        "\nEmail: " +
-        formData.email +
-        "\n\nMessage:\n" +
-        formData.message
-      );
+    try {
+      const response = await fetch('https://jewarproperty.in/api/send-email.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    window.location.href = mailtoLink;
+      const data = await response.json();
 
-    setShowPopup(false);
-    if (setExternalShow) setExternalShow(false);
-
-    setFormData({ name: "", phone: "", email: "", message: "" });
+      if (data.success) {
+        setShowPopup(false);
+        if (setExternalShow) setExternalShow(false);
+        setFormData({ name: "", phone: "", email: "", message: "", plotSize: "", city: "", budget: "" });
+        window.location.href = '/thank-you';
+      } else {
+        alert('Failed to send message: ' + (data.error || 'Unknown error'));
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('An error occurred. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   // ---------------------------
@@ -1337,29 +1357,24 @@ function PopupForm({ externalShow, setExternalShow }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={handleClose}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100]"
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[100]"
           />
 
           {/* Modal */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            transition={{ type: "spring", duration: 0.5 }}
-            className="
-  fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 
-  w-[95%] max-w-lg z-[101]
-  max-h-[90vh]
-"
-
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            transition={{ type: "spring", duration: 0.5, bounce: 0.3 }}
+            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md md:max-w-lg lg:max-w-xl z-[101] px-4"
           >
-            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden mx-auto w-full">
+            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden w-full max-h-[90vh] flex flex-col">
 
               {/* Header with gradient */}
-              <div className="relative bg-gradient-to-r from-blue-600 to-blue-700 p-6 text-white">
+              <div className="relative bg-gradient-to-r from-blue-600 to-blue-700 p-6 sm:p-8 text-white flex-shrink-0">
                 <button
                   onClick={handleClose}
-                  className="absolute top-4 right-4 w-8 h-8 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-all"
+                  className="absolute top-4 right-4 w-8 h-8 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-all focus:outline-none focus:ring-2 focus:ring-white/50"
                   aria-label="Close popup"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1367,133 +1382,123 @@ function PopupForm({ externalShow, setExternalShow }) {
                   </svg>
                 </button>
 
-                <div className="pr-8">
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ delay: 0.2, type: "spring" }}
-                    className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-3"
-                  >
-                    <span className="text-2xl">🏡</span>
-                  </motion.div>
-                  <h3 className="text-2xl font-bold mb-2">Get Free Site Visit!</h3>
-                  <p className="text-blue-100 text-sm">
-                    Limited time offer to visit the premium plots. Fill the form below to get instant pricing details.
-                  </p>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-2xl sm:text-3xl">🏡</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-bold mb-1">Get Free Site Visit!</h3>
+                    <p className="text-blue-100 text-xs sm:text-sm leading-relaxed">
+                      Fill the form below to get instant pricing details & exclusive offers.
+                    </p>
+                  </div>
                 </div>
               </div>
 
               {/* Form */}
-              <div className="p-6 pt-4 pb-6 max-h-[60vh] overflow-y-auto">
-                <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="p-6 sm:p-8 overflow-y-auto custom-scrollbar">
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
 
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Name */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                        Full Name <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        placeholder="Enter your name"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition text-left text-gray-900 placeholder-gray-400 bg-gray-50 focus:bg-white"
+                      />
+                    </div>
 
-
-                  {/* Name */}
-                  <div className='overflow-hidden relative'>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Full Name <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="Enter your name"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-                    />
+                    {/* Phone */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                        Phone Number <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="tel"
+                        required
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        placeholder="+91 XXXXX XXXXX"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition text-left text-gray-900 placeholder-gray-400 bg-gray-50 focus:bg-white"
+                      />
+                    </div>
                   </div>
 
-                  {/* Phone */}
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Phone Number <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+91 XXXXX XXXXX"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-                    />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Email */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                        Email Address <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="your.email@example.com"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition text-left text-gray-900 placeholder-gray-400 bg-gray-50 focus:bg-white"
+                      />
+                    </div>
+
+                    {/* City */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                        City <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        required
+                        value={formData.city}
+                        onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                        placeholder="Your City"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition text-left text-gray-900 placeholder-gray-400 bg-gray-50 focus:bg-white"
+                      />
+                    </div>
                   </div>
 
-                  {/* Email */}
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Email Address <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="your.email@example.com"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      City <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      required
-                      value={formData.city}
-                      onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                      placeholder="City"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-                    />
-                  </div>
                   {/* Plot Size */}
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">
                       Plot Size (Optional)
                     </label>
-                    <select
-                      value={formData.plotSize}
-                      onChange={(e) => setFormData({ ...formData, plotSize: e.target.value })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition"
-                    >
-                      <option value="">Select a plot size</option>
-                      <option value="100 Sq.Yard">100 Sq. Yard</option>
-                      <option value="150 Sq.Yard">150 Sq. Yard</option>
-                      <option value="200 Sq.Yard">200 Sq. Yard</option>
-                      <option value="300 Sq.Yard">300 Sq. Yard</option>
-                      <option value="500 Sq.Yard">500 Sq. Yard</option>
-                    </select>
+                    <div className="relative">
+                      <select
+                        value={formData.plotSize}
+                        onChange={(e) => setFormData({ ...formData, plotSize: e.target.value })}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition appearance-none bg-gray-50 focus:bg-white text-gray-900"
+                      >
+                        <option value="">Select a plot size</option>
+                        <option value="100 Sq.Yard">100 Sq. Yard</option>
+                        <option value="150 Sq.Yard">150 Sq. Yard</option>
+                        <option value="200 Sq.Yard">200 Sq. Yard</option>
+                        <option value="300 Sq.Yard">300 Sq. Yard</option>
+                        <option value="500 Sq.Yard">500 Sq. Yard</option>
+                      </select>
+                      <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-gray-500">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </div>
+                    </div>
                   </div>
-
-                  {/* Budget */}
-                  {/* <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Budget Range (Optional)
-                    </label>
-                    <select
-                      value={formData.budget}
-                      onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition"
-                    >
-                      <option value="">Select a budget</option>
-                      <option value="Under 15 Lakhs">Under 15 Lakhs</option>
-                      <option value="15–25 Lakhs">15–25 Lakhs</option>
-                      <option value="25–40 Lakhs">25–40 Lakhs</option>
-                      <option value="40 Lakhs – 1 Cr">40 Lakhs – 1 Cr</option>
-                      <option value="Above 1 Cr">Above 1 Cr</option>
-                    </select>
-                  </div> */}
 
                   {/* Message */}
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Message / Requirements (Optional)
+                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                      Message (Optional)
                     </label>
                     <textarea
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Tell us about your requirements..."
-                      rows={3}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none resize-none transition"
+                      rows={2}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none resize-none transition text-gray-900 placeholder-gray-400 bg-gray-50 focus:bg-white"
                     ></textarea>
                   </div>
 
@@ -1502,20 +1507,37 @@ function PopupForm({ externalShow, setExternalShow }) {
                     <button
                       type="button"
                       onClick={handleClose}
-                      className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition-all"
+                      className="flex-1 px-6 py-3.5 border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 hover:text-gray-900 transition-all focus:ring-2 focus:ring-gray-200"
                     >
-                      Maybe Later
+                      Close
                     </button>
                     <button
                       type="submit"
-                      className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-all shadow-lg hover:shadow-xl"
+                      disabled={loading}
+                      className="flex-[2] px-6 py-3.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-all shadow-lg hover:shadow-xl disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                     >
-                      Get Details
+                      {loading ? (
+                        <>
+                          <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          <span>Get Details</span>
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                          </svg>
+                        </>
+                      )}
                     </button>
                   </div>
 
-                  <p className="text-xs text-center text-gray-500 pt-2">
-                    🔒 Your information is safe and secure with us
+                  <p className="text-xs text-center text-gray-400 pt-1 flex items-center justify-center gap-1">
+                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" /></svg>
+                    Your information is safe and secure
                   </p>
                 </form>
 
