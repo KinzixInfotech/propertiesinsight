@@ -36,8 +36,6 @@ const icons = {
   FaHospital,
   FaRoute,
 };
-
-
 // Content Configuration Object
 export const siteContent = {
   // header: {
@@ -351,7 +349,6 @@ export default function TSBuildTechLanding() {
           ))}
           <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-gray-900/50 to-black/70"></div>
         </div>
-
         {/* Carousel Indicators */}
         <div className="absolute bottom-20 lg:bottom-24 left-1/2 -translate-x-1/2 z-20 flex gap-2">
           {heroImages.map((_, index) => (
@@ -366,7 +363,6 @@ export default function TSBuildTechLanding() {
             />
           ))}
         </div>
-
         {/* Content */}
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -424,7 +420,6 @@ export default function TSBuildTechLanding() {
                 </motion.div>
               ))}
             </div>
-
             {/* Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -455,7 +450,6 @@ export default function TSBuildTechLanding() {
             </motion.div>
           </motion.div>
         </div>
-
         {/* BOOK NOW - Fixed Left */}
         <div className="fixed lg:left-0 right-4 top-1/2 lg:-translate-y-1/2 -translate-y-1/2 z-40 ">
           <button
@@ -469,7 +463,6 @@ export default function TSBuildTechLanding() {
           </button>
         </div>
       </section>
-
       {/* Ticker */}
       <div className="bg-gray-900 text-white py-4 overflow-hidden">
         <div className="animate-marquee whitespace-nowrap inline-block">
@@ -482,20 +475,12 @@ export default function TSBuildTechLanding() {
           <span className="text-lg mx-8">
             ✦ Gated Society With CCTV Surveillance ✦ 100, 60, 40 & 35 Feet Road in Society ✦ 10 Bigha Lake & 10 Bigha Shopping Complex ✦ 10 Minutes from Jewar International Airport Terminal 2 ✦ 8 Minutes from Proposed Metro ✦ Buy Back Guarantee 36% ✦ On 6 Lane National Highway 343D ✦
           </span>
-          {/* <span className="text-lg mx-8">
-      ✦ Gated Society With CCTV Surveillance ✦ 100, 60, 40 & 35 Feet Road in Society ✦ 10 Bigha Lake & 10 Bigha Shopping Complex ✦ 10 Minutes from Jewar International Airport Terminal 2 ✦ 8 Minutes from Proposed Metro ✦ Buy Back Guarantee 36% ✦ On 6 Lane National Highway 343D ✦
-    </span>
-    <span className="text-lg mx-8">
-      ✦ Gated Society With CCTV Surveillance ✦ 100, 60, 40 & 35 Feet Road in Society ✦ 10 Bigha Lake & 10 Bigha Shopping Complex ✦ 10 Minutes from Jewar International Airport Terminal 2 ✦ 8 Minutes from Proposed Metro ✦ Buy Back Guarantee 36% ✦ On 6 Lane National Highway 343D ✦
-    </span> */}
         </div>
       </div>
-
       {/* About Section */}
       <section id="project" className="py-20 bg-white reveal-section">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-
             {/* LEFT CONTENT */}
             <div className="max-w-4xl mx-auto">
               <motion.div
@@ -711,7 +696,6 @@ export default function TSBuildTechLanding() {
             <h2 className="text-5xl font-bold mb-2">Trusted By 2431+ Buyers</h2>
             <p className="text-xl text-gray-600">Book Your Plot JUST 9 KM FROM JEWAR Airport</p>
           </motion.div>
-
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {[
               { title: "On Highway Plot Jewar", desc: "Prime location on the highway. Excellent connectivity & future growth" },
@@ -742,7 +726,7 @@ export default function TSBuildTechLanding() {
         </div>
       </section>
       {/* Why Yeida Section */}
-      <section id="why-yeida" className="py-20 bg-gray-50 reveal-section">
+      <section id="why-ada" className="py-20 bg-gray-50 reveal-section">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -1175,7 +1159,16 @@ export default function TSBuildTechLanding() {
           </div>
         </div>
       </section>
-
+      {/* WhatsApp Floating Button - Mobile Only */}
+      <a
+        href="https://wa.me/918383091404"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed right-6 bottom-20 w-12 h-12 bg-green-500 hover:scale-105 cursor-pointer transition-all text-white rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 z-50 md:hidden"
+        aria-label="Chat on WhatsApp"
+      >
+        <FaWhatsapp className="text-2xl" />
+      </a>
 
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -1183,7 +1176,6 @@ export default function TSBuildTechLanding() {
       >
         ↑
       </button>
-
       <style jsx>{`
     @keyframes marquee {
       0% { transform: translateX(0); }
