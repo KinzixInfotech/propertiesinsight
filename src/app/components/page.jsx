@@ -43,9 +43,6 @@ const Header = () => {
                     <div className="flex justify-between items-center">
                         <a href="/">
                             <div className="flex items-center gap-3">
-                                {/* <div className="w-32 h-12 md:w-36 lg:w-40 bg-gray-200 flex items-center justify-center text-sm text-gray-600">
-                                
-                            </div> */}
                                 <Image width={140} height={100} src={'/logo.png'} priority />
                                 <div className="leading-tight">
                                 </div>
@@ -65,9 +62,10 @@ const Header = () => {
                                     Call Now
                                 </button>
                             </a>
-                            <a href='#contact'>                            <button className="hidden md:block px-6 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
-                                Free Site Visit
-                            </button>
+                            <a href='#contact'>
+                                <button className="hidden md:block px-6 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+                                    Free Site Visit
+                                </button>
                             </a>
                             <button className="lg:hidden" onClick={() => setActiveMenu(!activeMenu)}>
                                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

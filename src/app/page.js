@@ -686,7 +686,7 @@ export default function TSBuildTechLanding() {
                   {/* Badge */}
                   {i === 1 && (
                     <div className="absolute -top-3 -right-3 bg-gradient-to-r from-amber-400 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md rotate-6">
-                      🔥 Bestseller
+                      🔥 Most Demanded Plot
                     </div>
                   )}
                 </div>
@@ -1283,7 +1283,7 @@ function PopupForm({ externalShow, setExternalShow }) {
         setShowPopup(true);
         setHasShown(true);
       }
-    }, 30000);
+    }, 20000);
 
     let scrollCount = 0;
     const handleScroll = () => {
@@ -1369,7 +1369,6 @@ function PopupForm({ externalShow, setExternalShow }) {
             className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md md:max-w-lg lg:max-w-xl z-[101] px-4"
           >
             <div className="bg-white rounded-2xl shadow-2xl overflow-hidden w-full max-h-[90vh] flex flex-col">
-
               {/* Header with gradient */}
               <div className="relative bg-gradient-to-r from-blue-600 to-blue-700 p-6 sm:p-8 text-white flex-shrink-0">
                 <button
@@ -1394,7 +1393,6 @@ function PopupForm({ externalShow, setExternalShow }) {
                   </div>
                 </div>
               </div>
-
               {/* Form */}
               <div className="p-6 sm:p-8 overflow-y-auto custom-scrollbar">
                 <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
@@ -1504,13 +1502,13 @@ function PopupForm({ externalShow, setExternalShow }) {
 
                   {/* Buttons */}
                   <div className="flex gap-3 pt-2">
-                    <button
+                    {/* <button
                       type="button"
                       onClick={handleClose}
                       className="flex-1 px-6 py-3.5 border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 hover:text-gray-900 transition-all focus:ring-2 focus:ring-gray-200"
                     >
                       Close
-                    </button>
+                    </button> */}
                     <button
                       type="submit"
                       disabled={loading}
