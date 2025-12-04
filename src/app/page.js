@@ -22,6 +22,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { HeroVideoDialog } from '@/components/ui/hero-video-dialog';
+import { Mail, MessageCircle, Phone } from 'lucide-react';
 const icons = {
   FaVideo,
   FaShieldAlt,
@@ -429,9 +430,7 @@ export default function TSBuildTechLanding() {
             >
               {/* Price Button */}
               <button
-                onClick={() =>
-                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
-                }
+                onClick={() => setShowPopup(true)}
                 className="bg-white text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all shadow-lg flex items-center gap-2"
               >
                 <span className="text-sm text-gray-500 line-through">₹38,000</span>
@@ -451,11 +450,9 @@ export default function TSBuildTechLanding() {
           </motion.div>
         </div>
         {/* BOOK NOW - Fixed Left */}
-        <div className="fixed lg:left-0 right-4 top-1/2 lg:-translate-y-1/2 -translate-y-1/2 z-40 ">
+        <div className="fixed lg:left-0 md:block hidden right-4 top-1/2 lg:-translate-y-1/2 -translate-y-1/2 z-40 ">
           <button
-            onClick={() =>
-              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
-            }
+            onClick={() => setShowPopup(true)}
             className="bg-gray-900 text-white lg:px-3 px-1 lg:py-8 py-2 text-sm font-semibold hover:bg-gray-800 transition shadow-lg"
             style={{ writingMode: "vertical-rl" }}
           >
@@ -501,11 +498,11 @@ export default function TSBuildTechLanding() {
                   {siteContent.about.description2}
                 </p>
 
-                <a href="#contact">
-                  <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
-                    Quick Query
-                  </button>
-                </a>
+
+                <button onClick={() => setShowPopup(true)} className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                  Quick Query
+                </button>
+
               </motion.div>
             </div>
 
@@ -994,7 +991,7 @@ export default function TSBuildTechLanding() {
               <h3 className="text-2xl font-bold mb-6 text-gray-900">Send us a message</h3>
 
               <div className="space-y-5 ">
-                <div className='relative overflow-hidden'>
+                <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
                   <input
                     type="text"
@@ -1164,15 +1161,53 @@ export default function TSBuildTechLanding() {
         href="https://wa.me/918383091404"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed right-6 bottom-20 w-12 h-12 bg-green-500 hover:scale-105 cursor-pointer transition-all text-white rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 z-50 md:hidden"
+        className="fixed hidden right-6 bottom-20 w-12 h-12 bg-green-500 hover:scale-105 cursor-pointer transition-all text-white rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 z-50 md:hidden"
         aria-label="Chat on WhatsApp"
       >
         <FaWhatsapp className="text-2xl" />
       </a>
+      {/* Mobile Popup Action Bar */}
+
+      <div className="fixed bottom-0 left-0 right-0 w-full bg-black shadow-2xl z-50 md:hidden">
+        <div className="flex items-center justify-around px-4 py-4">
+          {/* Call Button */}
+          <a href='tel:918383091404'>
+            <button
+              // onClick={handleCall}
+
+              className="flex flex-col items-center justify-center space-y-1 hover:opacity-80 transition-opacity"
+            >
+              <Phone className="w-6 h-6 text-white" strokeWidth={2} />
+              <span className="text-white text-sm font-medium">Call</span>
+            </button>
+          </a>
+          {/* WhatsApp Button */}
+          <a href="https://wa.me/918383091404" target="_blank" rel="noopener noreferrer">
+            <button
+              // onClick={handleWhatsApp}
+              className="flex flex-col items-center justify-center space-y-1 hover:opacity-80 transition-opacity"
+            >
+              <MessageCircle className="w-6 h-6 text-white" strokeWidth={2} />
+
+              <span className="text-white text-sm font-medium">WhatsApp</span>
+            </button>
+          </a>
+
+          {/* Enquiry Button */}
+          <button
+            onClick={() => setShowPopup(true)}
+            // onClick={handleEnquiry}
+            className="flex flex-col items-center justify-center space-y-1 hover:opacity-80 transition-opacity"
+          >
+            <Mail className="w-6 h-6 text-white" strokeWidth={2} />
+            <span className="text-white text-sm font-medium">Enquiry Now</span>
+          </button>
+        </div>
+      </div>
 
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="fixed right-6 bottom-6 w-12 h-12 bg-gray-800 hover:scale-105 cursor-pointer transition-all text-white rounded-full flex items-center justify-center shadow-lg hover:bg-gray-700 transition z-50"
+        className="fixed right-6 md:block hidden bottom-6 w-12 h-12 bg-gray-800 hover:scale-105 cursor-pointer transition-all text-white rounded-full flex items-center justify-center shadow-lg hover:bg-gray-700 transition z-50"
       >
         ↑
       </button>

@@ -59,17 +59,17 @@ const Footer = () => {
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center mb-6 md:mb-8 px-4">
-                            <button
-                                onClick={() => window.location.href = `tel:${siteContent.footer.phone}`}
-                                className="w-full sm:w-auto bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 md:px-10 py-3 md:py-4 rounded-full text-sm md:text-base lg:text-lg font-bold hover:from-cyan-400 hover:to-blue-500 transition-all shadow-2xl hover:shadow-cyan-500/50 hover:scale-105 flex items-center justify-center gap-2 md:gap-3"
-                            >
-                                <svg className="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                                </svg>
-                                <span className="whitespace-nowrap">Call Now</span>
-                                <span className="hidden sm:inline">{siteContent.footer.phone}</span>
-                            </button>
-
+                            <a href={`tel:${siteContent.footer.phone}`}>
+                                <button
+                                    className="w-full sm:w-auto bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 md:px-10 py-3 md:py-4 rounded-full text-sm md:text-base lg:text-lg font-bold hover:from-cyan-400 hover:to-blue-500 transition-all shadow-2xl hover:shadow-cyan-500/50 hover:scale-105 flex items-center justify-center gap-2 md:gap-3"
+                                >
+                                    <svg className="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                                    </svg>
+                                    <span className="whitespace-nowrap">Call Now</span>
+                                    <span className="hidden sm:inline">{siteContent.footer.phone}</span>
+                                </button>
+                            </a>
                             <button
                                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                                 className="w-full sm:w-auto bg-white text-slate-900 px-6 md:px-10 py-3 md:py-4 rounded-full text-sm md:text-base lg:text-lg font-bold hover:bg-cyan-50 transition-all shadow-2xl hover:shadow-white/30 hover:scale-105 flex items-center justify-center gap-2 md:gap-3"
