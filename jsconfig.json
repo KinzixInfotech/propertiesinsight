@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     }
   }
 }
@@ -14,7 +16,7 @@
 //   },
 //   hero: {
 //     title: "Plot Near Jewar Airport",
-//     subtitle: "Best Investment Opportunity",
+//     subtitle: "Golden City Township",
 //     features: [
 //       "Free Hold Property",
 //       "Minimum Size 100 Sq. Yards",

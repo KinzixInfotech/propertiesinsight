@@ -163,10 +163,19 @@ const Footer = () => {
 
                             {/* Social Icons */}
                             <div className="flex gap-5 text-lg">
-                                <FaFacebookF className="cursor-pointer hover:text-blue-500 transition" />
-                                <FaTwitter className="cursor-pointer hover:text-blue-400 transition" />
-                                <FaLinkedinIn className="cursor-pointer hover:text-blue-600 transition" />
-                                <FaInstagram className="cursor-pointer hover:text-pink-500 transition" />
+
+
+                                <a href='https://www.facebook.com/propertiesInsightOfficial/'>
+                                    <FaFacebookF className="cursor-pointer hover:text-blue-600 transition" />
+                                </a>
+                                <a href='https://www.linkedin.com/company/properties-insight/'>
+                                    <FaLinkedinIn className="cursor-pointer hover:text-blue-600 transition" />
+                                </a>
+                                <a href="https://www.instagram.com/properties_insight_official/">
+
+                                    <FaInstagram className="cursor-pointer hover:text-blue-600 transition" />
+                                </a>
+
                             </div>
                             <p className="text-gray-500 text-xs mt-3 text-center md:text-right">
                                 Developed by{" "}

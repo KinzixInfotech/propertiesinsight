@@ -7,7 +7,7 @@ const siteContent = {
     header: {
         // logo: "TS BUILDTECH",
         phone: "+91-83830-91404",
-        email: "contact.rashiparjapti@gmail.com",
+        email: "info@propertiesinsight.com",
         nav: ["Project", "Amenities", "Plot Size", "Gallery", "Videos", "Why ADA?", "Contact"]
     },
 }
@@ -29,10 +29,16 @@ const Header = () => {
                     </div>
                     <div className="flex gap-3">
                         <span>Follow us:</span>
-                        <FaFacebookF className="cursor-pointer hover:text-blue-600 transition" />
-                        <FaTwitter className="cursor-pointer hover:text-blue-600 transition" />
-                        <FaLinkedinIn className="cursor-pointer hover:text-blue-600 transition" />
-                        <FaInstagram className="cursor-pointer hover:text-blue-600 transition" />
+                        <a href='https://www.facebook.com/propertiesInsightOfficial/'>
+                            <FaFacebookF className="cursor-pointer hover:text-blue-600 transition" />
+                        </a>
+                        <a href='https://www.linkedin.com/company/properties-insight/'>
+                            <FaLinkedinIn className="cursor-pointer hover:text-blue-600 transition" />
+                        </a>
+                        <a href="https://www.instagram.com/properties_insight_official/">
+
+                            <FaInstagram className="cursor-pointer hover:text-blue-600 transition" />
+                        </a>
                     </div>
                 </div>
             </div>

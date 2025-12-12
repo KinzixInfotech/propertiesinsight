@@ -19,7 +19,7 @@ export async function POST(req) {
         // Email structure
         const mailOptions = {
             from: process.env.EMAIL_USER,
-            to: "contact.rashiparjapti@gmail.com",
+            to: "info@propertiesinsight.com",
             subject: `New Inquiry from ${name} - Properties Insight`,
             html: `
         <h2>New Inquiry Received</h2>
