@@ -16,12 +16,17 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Properties Insight",
   description: "Properties Insight",
+  verification: {
+    google: "SNzhirTDKGNjNu4JNJrxQZfUeC0RNZUHY2cjQVRYxjo",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-
+      <head>
+        <meta name="google-site-verification" content="SNzhirTDKGNjNu4JNJrxQZfUeC0RNZUHY2cjQVRYxjo" />
+      </head>
       <body
       // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
