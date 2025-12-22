@@ -332,7 +332,7 @@ export default function TSBuildTechLanding() {
             {/* Hero Section */}
             <section
                 ref={heroRef}
-                className="relative min-h-screen flex items-center overflow-hidden pt-6 lg:pt-0"
+                className="relative min-h-screen lg:min-h-screen py-8 lg:py-0 flex items-center overflow-hidden"
             >
                 {/* Background Carousel */}
                 <div className="absolute inset-0">
@@ -353,7 +353,7 @@ export default function TSBuildTechLanding() {
                     <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-gray-900/50 to-black/70"></div>
                 </div>
                 {/* Carousel Indicators */}
-                <div className="absolute bottom-20 lg:bottom-24 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+                <div className="absolute bottom-20 lg:bottom-24 left-1/2 -translate-x-1/2 z-20 hidden lg:flex gap-2">
                     {heroImages.map((_, index) => (
                         <button
                             key={index}
@@ -368,7 +368,7 @@ export default function TSBuildTechLanding() {
                 </div>
                 {/* Content */}
                 <div className="container mx-auto px-4 relative z-10">
-                    <div className="grid lg:grid-cols-2 gap-8 items-center">
+                    <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-start lg:items-center">
                         {/* Left Content */}
                         <motion.div
                             initial={{ opacity: 0, x: -50 }}
@@ -461,29 +461,29 @@ export default function TSBuildTechLanding() {
                             transition={{ duration: 1, delay: 0.2 }}
                             className="w-full"
                         >
-                            <div className="bg-white/10 lg:block hidden backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden border border-white/20">
+                            <div className="bg-white/10 backdrop-blur-md rounded-xl lg:rounded-2xl shadow-2xl overflow-hidden border border-white/20 max-w-md lg:max-w-none mx-auto">
                                 {/* Form Header */}
-                                <div className="relative bg-gradient-to-r from-blue-500/30 to-blue-600/30 backdrop-blur-sm p-6 border-b border-white/20">
-                                    <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
-                                            <span className="text-2xl">🏡</span>
+                                <div className="relative bg-gradient-to-r from-blue-500/30 to-blue-600/30 backdrop-blur-sm p-4 lg:p-5 border-b border-white/20">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-10 h-10 lg:w-11 lg:h-11 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span className="text-xl lg:text-2xl">🏡</span>
                                         </div>
                                         <div>
-                                            <h3 className="text-xl font-bold mb-1 text-white">Get Free Site Visit!</h3>
-                                            <p className="text-white/80 text-sm leading-relaxed">
-                                                Fill the form to get instant pricing details & exclusive offers.
+                                            <h3 className="text-lg lg:text-xl font-bold text-white">Get Free Site Visit!</h3>
+                                            <p className="text-white/80 text-xs lg:text-sm leading-tight">
+                                                Get instant pricing & exclusive offers
                                             </p>
                                         </div>
                                     </div>
                                 </div>
 
                                 {/* Form Body */}
-                                <div className="p-6">
-                                    <form onSubmit={handleSubmit} className="space-y-4">
+                                <div className="p-4 lg:p-5">
+                                    <form onSubmit={handleSubmit} className="space-y-3 lg:space-y-4">
                                         {/* Name & Phone */}
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <div className="grid grid-cols-2 gap-2.5 lg:gap-3">
                                             <div>
-                                                <label className="block text-sm font-semibold text-white mb-1.5">
+                                                <label className="block text-xs lg:text-sm font-semibold text-white mb-1.5">
                                                     Full Name <span className="text-red-400">*</span>
                                                 </label>
                                                 <input
@@ -491,14 +491,14 @@ export default function TSBuildTechLanding() {
                                                     required
                                                     value={formData.name}
                                                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                                    placeholder="Enter your name"
-                                                    className="w-full px-4 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent outline-none transition text-white placeholder-white/50"
+                                                    placeholder="Your name"
+                                                    className="w-full px-3 py-2.5 text-sm bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent outline-none transition text-white placeholder-white/50"
                                                 />
                                             </div>
 
                                             <div>
-                                                <label className="block text-sm font-semibold text-white mb-1.5">
-                                                    Phone Number <span className="text-red-400">*</span>
+                                                <label className="block text-xs lg:text-sm font-semibold text-white mb-1.5">
+                                                    Phone <span className="text-red-400">*</span>
                                                 </label>
                                                 <input
                                                     type="tel"
@@ -506,29 +506,29 @@ export default function TSBuildTechLanding() {
                                                     value={formData.phone}
                                                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                                                     placeholder="+91 XXXXX XXXXX"
-                                                    className="w-full px-4 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent outline-none transition text-white placeholder-white/50"
+                                                    className="w-full px-3 py-2.5 text-sm bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent outline-none transition text-white placeholder-white/50"
                                                 />
                                             </div>
                                         </div>
 
                                         {/* Email & City */}
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <div className="grid grid-cols-2 gap-2.5 lg:gap-3">
                                             <div>
-                                                <label className="block text-sm font-semibold text-white mb-1.5">
-                                                    Email Address <span className="text-red-400">*</span>
+                                                <label className="block text-xs lg:text-sm font-semibold text-white mb-1.5">
+                                                    Email <span className="text-red-400">*</span>
                                                 </label>
                                                 <input
                                                     type="email"
                                                     required
                                                     value={formData.email}
                                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                                    placeholder="your.email@example.com"
-                                                    className="w-full px-4 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent outline-none transition text-white placeholder-white/50"
+                                                    placeholder="email@example.com"
+                                                    className="w-full px-3 py-2.5 text-sm bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent outline-none transition text-white placeholder-white/50"
                                                 />
                                             </div>
 
                                             <div>
-                                                <label className="block text-sm font-semibold text-white mb-1.5">
+                                                <label className="block text-xs lg:text-sm font-semibold text-white mb-1.5">
                                                     City <span className="text-red-400">*</span>
                                                 </label>
                                                 <input
@@ -537,22 +537,22 @@ export default function TSBuildTechLanding() {
                                                     value={formData.city}
                                                     onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                                                     placeholder="Your City"
-                                                    className="w-full px-4 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent outline-none transition text-white placeholder-white/50"
+                                                    className="w-full px-3 py-2.5 text-sm bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent outline-none transition text-white placeholder-white/50"
                                                 />
                                             </div>
                                         </div>
 
                                         {/* Plot Size & Budget */}
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <div className="grid grid-cols-2 gap-2.5 lg:gap-3">
                                             <div>
-                                                <label className="block text-sm font-semibold text-white mb-1.5">
-                                                    Plot Size (Optional)
+                                                <label className="block text-xs lg:text-sm font-semibold text-white mb-1.5">
+                                                    Plot Size
                                                 </label>
                                                 <div className="relative">
                                                     <select
                                                         value={formData.plotSize || ''}
                                                         onChange={(e) => setFormData({ ...formData, plotSize: e.target.value })}
-                                                        className="w-full px-4 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none transition appearance-none text-white"
+                                                        className="w-full px-3 py-2.5 text-sm bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none transition appearance-none text-white"
                                                     >
                                                         <option value="" className="bg-gray-900">Select size</option>
                                                         <option value="100 Sq.Yard" className="bg-gray-900">100 Sq. Yard</option>
@@ -561,7 +561,7 @@ export default function TSBuildTechLanding() {
                                                         <option value="300 Sq.Yard" className="bg-gray-900">300 Sq. Yard</option>
                                                         <option value="500 Sq.Yard" className="bg-gray-900">500 Sq. Yard</option>
                                                     </select>
-                                                    <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-white/70">
+                                                    <div className="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none text-white/70">
                                                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                                         </svg>
@@ -570,22 +570,22 @@ export default function TSBuildTechLanding() {
                                             </div>
 
                                             <div>
-                                                <label className="block text-sm font-semibold text-white mb-1.5">
-                                                    Budget (Optional)
+                                                <label className="block text-xs lg:text-sm font-semibold text-white mb-1.5">
+                                                    Budget
                                                 </label>
                                                 <input
                                                     type="text"
                                                     value={formData.budget}
                                                     onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                                                     placeholder="Your budget"
-                                                    className="w-full px-4 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent outline-none transition text-white placeholder-white/50"
+                                                    className="w-full px-3 py-2.5 text-sm bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent outline-none transition text-white placeholder-white/50"
                                                 />
                                             </div>
                                         </div>
 
                                         {/* Message */}
                                         <div>
-                                            <label className="block text-sm font-semibold text-white mb-1.5">
+                                            <label className="block text-xs lg:text-sm font-semibold text-white mb-1.5">
                                                 Message (Optional)
                                             </label>
                                             <textarea
@@ -593,7 +593,7 @@ export default function TSBuildTechLanding() {
                                                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                                 placeholder="Tell us about your requirements..."
                                                 rows={2}
-                                                className="w-full px-4 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent outline-none resize-none transition text-white placeholder-white/50"
+                                                className="w-full px-3 py-2.5 text-sm bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent outline-none resize-none transition text-white placeholder-white/50"
                                             ></textarea>
                                         </div>
 
@@ -601,11 +601,11 @@ export default function TSBuildTechLanding() {
                                         <button
                                             type="submit"
                                             disabled={loading}
-                                            className="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg font-semibold hover:from-blue-600 hover:to-blue-700 transition-all shadow-lg hover:shadow-xl disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent"
+                                            className="w-full px-4 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg font-semibold text-sm lg:text-base hover:from-blue-600 hover:to-blue-700 transition-all shadow-lg hover:shadow-xl disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent"
                                         >
                                             {loading ? (
                                                 <>
-                                                    <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                    <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                                     </svg>
@@ -621,9 +621,9 @@ export default function TSBuildTechLanding() {
                                             )}
                                         </button>
 
-                                        <p className="text-xs text-center text-white/60 pt-1 flex items-center justify-center gap-1">
+                                        <p className="text-[10px] lg:text-xs text-center text-white/60 flex items-center justify-center gap-1">
                                             <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" /></svg>
-                                            Your information is safe and secure
+                                            Your info is safe & secure
                                         </p>
                                     </form>
                                 </div>
@@ -1351,27 +1351,27 @@ export default function TSBuildTechLanding() {
             {/* Mobile Popup Action Bar */}
 
             <div className="fixed bottom-0 left-0 right-0 w-full bg-black shadow-2xl z-50 md:hidden">
-                <div className="flex items-center justify-around px-4 py-4">
+                <div className="flex items-center justify-around px-3 py-2.5">
                     {/* Call Button */}
                     <a href='tel:918383091404'>
                         <button
                             // onClick={handleCall}
 
-                            className="flex flex-col items-center justify-center space-y-1 hover:opacity-80 transition-opacity"
+                            className="flex flex-col items-center justify-center space-y-0.5 hover:opacity-80 transition-opacity"
                         >
-                            <Phone className="w-6 h-6 text-white" strokeWidth={2} />
-                            <span className="text-white text-sm font-medium">Call</span>
+                            <Phone className="w-5 h-5 text-white" strokeWidth={2} />
+                            <span className="text-white text-xs font-medium">Call</span>
                         </button>
                     </a>
                     {/* WhatsApp Button */}
                     <a href="https://wa.me/918383091404" target="_blank" rel="noopener noreferrer">
                         <button
                             // onClick={handleWhatsApp}
-                            className="flex flex-col items-center justify-center space-y-1 hover:opacity-80 transition-opacity"
+                            className="flex flex-col items-center justify-center space-y-0.5 hover:opacity-80 transition-opacity"
                         >
-                            <MessageCircle className="w-6 h-6 text-white" strokeWidth={2} />
+                            <MessageCircle className="w-5 h-5 text-white" strokeWidth={2} />
 
-                            <span className="text-white text-sm font-medium">WhatsApp</span>
+                            <span className="text-white text-xs font-medium">WhatsApp</span>
                         </button>
                     </a>
 
@@ -1379,10 +1379,10 @@ export default function TSBuildTechLanding() {
                     <button
                         onClick={() => setShowPopup(true)}
                         // onClick={handleEnquiry}
-                        className="flex flex-col items-center justify-center space-y-1 hover:opacity-80 transition-opacity"
+                        className="flex flex-col items-center justify-center space-y-0.5 hover:opacity-80 transition-opacity"
                     >
-                        <Mail className="w-6 h-6 text-white" strokeWidth={2} />
-                        <span className="text-white text-sm font-medium">Enquiry Now</span>
+                        <Mail className="w-5 h-5 text-white" strokeWidth={2} />
+                        <span className="text-white text-xs font-medium">Enquiry Now</span>
                     </button>
                 </div>
             </div>
