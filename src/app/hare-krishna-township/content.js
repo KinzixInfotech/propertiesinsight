@@ -265,171 +265,146 @@ export default function TSBuildTechLanding() {
 
             {/* Hero Section */}
             {/* NEW HERO SECTION UI */}
+            {/* NEW HERO SECTION UI */}
             <section
                 ref={heroRef}
-                className="relative min-h-screen flex items-center bg-gray-900 overflow-hidden"
+                className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900"
             >
-
                 {/* Background Image - Fixed/Absolute */}
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="https://plus.unsplash.com/premium_photo-1672116452571-896980a801c8?q=80&w=2671&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" // Using the first township image
+                        src="https://plus.unsplash.com/premium_photo-1672116452571-896980a801c8?q=80&w=2671&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         alt="Background"
                         className="w-full h-full object-cover opacity-60"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
                 </div>
 
-                {/* Vertical Sidebar - Left */}
-                <div className="absolute left-0 top-0 bottom-0 w-10 md:w-14 bg-white z-20 flex items-center justify-center shadow-2xl">
-                    <div className="transform -rotate-180 text-gray-900 font-bold tracking-[0.2em] text-xs md:text-sm whitespace-nowrap" style={{ writingMode: 'vertical-rl' }}>
-                        YAMUNA EXPRESSWAY, NEAR JEWAR AIRPORT
-                    </div>
-                </div>
+                <div className="container mx-auto px-4 relative z-10 py-20">
+                    <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-                <div className="container mx-auto px-4 pl-16 md:pl-20 relative z-10 py-20">
-                    <div className="grid lg:grid-cols-12 gap-8 items-center">
-
-                        {/* LEFT CONTENT - 8 Cols */}
-                        <div className="lg:col-span-7 text-white">
-
-                            {/* Title Section */}
+                        {/* Left Content */}
+                        <div className="text-white space-y-8">
                             <motion.div
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8 }}
                             >
-                                <h1 className="text-4xl md:text-6xl font-bold mb-2">
+                                <div className="inline-flex items-center gap-2 bg-[#1a5aff]/20 border border-[#1a5aff] text-[#1a5aff] px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
+                                    <span className="w-2 h-2 rounded-full bg-[#1a5aff] animate-pulse"></span>
+                                    <span className="font-bold text-sm tracking-widest uppercase">Premium Residential Plots</span>
+                                </div>
+
+                                <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-4">
                                     {siteContent.hero.title}
                                 </h1>
+                                <p className="text-xl md:text-2xl text-gray-300 font-light border-l-4 border-[#1a5aff] pl-6 mb-8">
+                                    {siteContent.hero.subtitle}
+                                </p>
 
-                                {/* Green Badge/Subtitle */}
-                                <div className="inline-flex items-center gap-2 bg-[#4ade80] text-black px-4 py-1.5 md:skew-x-[-15deg] mb-8">
-                                    <span className="font-bold text-sm md:text-base md:skew-x-[15deg] uppercase tracking-wider">
-                                        {siteContent.hero.subtitle}
-                                    </span>
+                                {/* Features List */}
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 mb-8">
+                                    {siteContent.hero.features.map((feature, idx) => (
+                                        <div key={idx} className="flex items-center gap-3">
+                                            <FaCheckCircle className="text-[#1a5aff] flex-shrink-0 text-xl" />
+                                            <span className="text-gray-200">{feature}</span>
+                                        </div>
+                                    ))}
                                 </div>
-                            </motion.div>
 
-                            {/* Price Section */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.8, delay: 0.2 }}
-                                className="flex items-center gap-4 mb-8"
-                            >
-                                <div className="border-l-4 border-[#4ade80] pl-4">
-                                    <p className="text-gray-300 uppercase tracking-widest text-sm mb-1">Starting At</p>
-                                    <div className="flex items-baseline gap-2">
-                                        <h2 className="text-5xl md:text-6xl font-bold text-[#4ade80]">
-                                            18 Lacs
-                                        </h2>
-                                        <span className="text-xl text-gray-400">Onwards</span>
+                                {/* Price Tag */}
+                                <div className="flex items-center gap-6 p-4 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm inline-block">
+                                    <div className="text-sm text-gray-400 uppercase tracking-widest">Starting Price</div>
+                                    <div className="text-3xl md:text-4xl font-bold text-white">
+                                        ₹18 <span className="text-[#1a5aff]">Lacs*</span>
                                     </div>
-                                </div>
-                            </motion.div>
-
-                            {/* Info Grid */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.8, delay: 0.4 }}
-                                className="grid grid-cols-1 md:grid-cols-2 gap-0 border border-gray-700 bg-black/50 backdrop-blur-sm max-w-2xl"
-                            >
-                                <div className="p-4 border-b md:border-b-0 md:border-r border-gray-700">
-                                    <p className="text-gray-400 text-xs uppercase mb-1">Project Area</p>
-                                    <p className="font-semibold text-white">80 Bighas of Land</p>
-                                </div>
-                                <div className="p-4 border-b border-gray-700">
-                                    <p className="text-gray-400 text-xs uppercase mb-1">Security</p>
-                                    <p className="font-semibold text-white">Gated Society with CCTV</p>
-                                </div>
-                                <div className="p-4 md:border-r border-gray-700">
-                                    <p className="text-gray-400 text-xs uppercase mb-1">Connectivity</p>
-                                    <p className="font-semibold text-white">10 Min from Jewar Airport</p>
-                                </div>
-                                <div className="p-4">
-                                    <p className="text-gray-400 text-xs uppercase mb-1">Infrastructure</p>
-                                    <p className="font-semibold text-white">30 & 40 Feet Wide Roads</p>
                                 </div>
                             </motion.div>
                         </div>
 
-                        {/* RIGHT FORM - 4 Cols - Floating Dark Form */}
-                        <div className="lg:col-span-5">
-                            <motion.div
-                                initial={{ opacity: 0, x: 50 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.8, delay: 0.5 }}
-                                className="bg-black p-6 md:p-8 shadow-2xl border-t-4 border-[#4ade80]"
-                            >
-                                <div className="mb-6">
-                                    <h3 className="text-2xl font-bold text-white mb-1">Have a Question?</h3>
-                                    <p className="text-gray-400 text-sm">ENQUIRE NOW</p>
+                        {/* Right Form - Clean White Modern Card */}
+                        <motion.div
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
+                            className="relative w-full max-w-lg mx-auto"
+                        >
+                            {/* Decorative blur behind the form */}
+                            <div className="absolute -inset-1 bg-gradient-to-r from-[#1a5aff] to-blue-400 rounded-3xl blur opacity-25"></div>
+
+                            <div className="relative bg-white p-8 md:p-10 rounded-3xl shadow-2xl">
+                                <div className="mb-8">
+                                    <span className="text-[#1a5aff] font-bold tracking-wider text-xs uppercase mb-2 block">
+                                        Limited Time Offer
+                                    </span>
+                                    <h3 className="text-3xl font-black text-gray-900 mb-2">
+                                        Book Your Site <span className="text-[#1a5aff]">Visit</span>
+                                    </h3>
+                                    <p className="text-gray-500 text-sm">
+                                        Get instant callback & exclusive pricing details.
+                                    </p>
                                 </div>
 
-                                <form onSubmit={handleSubmit} className="space-y-4">
-                                    <div>
-                                        <label className="block text-xs font-semibold text-gray-300 mb-1">Name*</label>
+                                <form onSubmit={handleSubmit} className="space-y-5">
+                                    <div className="space-y-1">
+                                        <label className="text-xs font-bold text-gray-700 uppercase tracking-wide ml-1">Name</label>
                                         <input
                                             type="text"
                                             required
                                             value={formData.name}
                                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                            className="w-full px-4 py-3 bg-white text-gray-900 focus:outline-none"
-                                            placeholder="Name"
+                                            className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:border-[#1a5aff] focus:ring-2 focus:ring-[#1a5aff]/20 outline-none text-gray-900 font-medium transition-all"
+                                            placeholder="Enter your full name"
                                         />
                                     </div>
-                                    <div>
-                                        <label className="block text-xs font-semibold text-gray-300 mb-1">Email*</label>
-                                        <input
-                                            type="email"
-                                            required
-                                            value={formData.email}
-                                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                            className="w-full px-4 py-3 bg-white text-gray-900 focus:outline-none"
-                                            placeholder="Email Id"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="block text-xs font-semibold text-gray-300 mb-1">Mobile Number*</label>
+
+                                    <div className="space-y-1">
+                                        <label className="text-xs font-bold text-gray-700 uppercase tracking-wide ml-1">Phone</label>
                                         <input
                                             type="tel"
                                             required
                                             value={formData.phone}
                                             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                            className="w-full px-4 py-3 bg-white text-gray-900 focus:outline-none"
-                                            placeholder="Mobile Number"
+                                            className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:border-[#1a5aff] focus:ring-2 focus:ring-[#1a5aff]/20 outline-none text-gray-900 font-medium transition-all"
+                                            placeholder="+91 XXXXX XXXXX"
                                         />
                                     </div>
-                                    <div>
-                                        <label className="block text-xs font-semibold text-gray-300 mb-1">Plot Size*</label>
-                                        <select
-                                            value={formData.plotSize}
-                                            onChange={(e) => setFormData({ ...formData, plotSize: e.target.value })}
-                                            className="w-full px-4 py-3 bg-white text-gray-900 focus:outline-none appearance-none"
-                                        >
-                                            <option value="">Select Plot Size</option>
-                                            <option value="100 Sq.Yard">100 Sq. Yard</option>
-                                            <option value="150 Sq.Yard">150 Sq. Yard</option>
-                                            <option value="200 Sq.Yard">200 Sq. Yard</option>
-                                            <option value="400 Sq.Yard">400 Sq. Yard</option>
-                                        </select>
+
+                                    <div className="space-y-1">
+                                        <label className="text-xs font-bold text-gray-700 uppercase tracking-wide ml-1">Interest</label>
+                                        <div className="relative">
+                                            <select
+                                                value={formData.plotSize}
+                                                onChange={(e) => setFormData({ ...formData, plotSize: e.target.value })}
+                                                className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:border-[#1a5aff] focus:ring-2 focus:ring-[#1a5aff]/20 outline-none text-gray-900 font-medium transition-all appearance-none cursor-pointer"
+                                            >
+                                                <option value="" className="text-gray-500">Select Plot Size</option>
+                                                <option value="100 Sq.Yard">100 Sq. Yard</option>
+                                                <option value="150 Sq.Yard">150 Sq. Yard</option>
+                                                <option value="200 Sq.Yard">200 Sq. Yard</option>
+                                                <option value="400 Sq.Yard">400 Sq. Yard</option>
+                                            </select>
+                                            <FaChevronCircleDown className="absolute right-5 top-5 text-gray-400 pointer-events-none" />
+                                        </div>
                                     </div>
 
                                     <button
                                         type="submit"
                                         disabled={loading}
-                                        className="w-full bg-[#fbbf24] hover:bg-[#f59e0b] text-black font-bold py-3 uppercase tracking-wider transition-colors mt-2"
+                                        className="w-full bg-[#1a5aff] hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-500/30 transition-all transform hover:-translate-y-1 mt-4 flex items-center justify-center gap-2 group"
                                     >
-                                        {loading ? 'Sending...' : 'SUBMIT'}
+                                        {loading ? 'Processing...' : 'SCHEDULE VISIT NOW'}
+                                        <span className="group-hover:translate-x-1 transition-transform">→</span>
                                     </button>
+
+                                    <p className="text-center text-xs text-gray-400 mt-4 flex items-center justify-center gap-1">
+                                        <FaShieldAlt className="text-green-500" /> 100% Secure & Spam Free
+                                    </p>
                                 </form>
-                            </motion.div>
-                        </div>
+                            </div>
+                        </motion.div>
 
                     </div>
-
                 </div>
             </section>
             {/* About Section */}
@@ -444,7 +419,7 @@ export default function TSBuildTechLanding() {
                     <motion.div
                         animate={{ y: [0, -20, 0] }}
                         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute top-20 left-10 text-green-500/5 text-9xl font-black select-none"
+                        className="absolute top-20 left-10 text-[#1a5aff]/5 text-9xl font-black select-none"
                     >
                         HKT
                     </motion.div>
@@ -465,20 +440,20 @@ export default function TSBuildTechLanding() {
                                 <div className="space-y-4 mt-8">
                                     <img src="./1.png" alt="Township View 1" className="w-full h-64 object-cover rounded-2xl shadow-lg hover:scale-105 transition-transform duration-500" />
                                     <div className="bg-black p-6 rounded-2xl text-white shadow-xl">
-                                        <p className="text-3xl font-bold text-green-400">80+</p>
+                                        <p className="text-3xl font-bold text-blue-400">80+</p>
                                         <p className="text-sm text-gray-400 uppercase tracking-wider">Bighas of Land</p>
                                     </div>
                                 </div>
                                 <div className="space-y-4">
-                                    <div className="bg-green-100 p-6 rounded-2xl text-green-900 border border-green-200">
-                                        <FaCheckCircle className="text-3xl mb-2 text-green-600" />
+                                    <div className="bg-blue-100 p-6 rounded-2xl text-blue-900 border border-blue-200">
+                                        <FaCheckCircle className="text-3xl mb-2 text-[#1a5aff]" />
                                         <p className="font-bold">RERA Approved</p>
                                     </div>
                                     <img src="./2.png" alt="Township View 2" className="w-full h-80 object-cover rounded-2xl shadow-lg hover:scale-105 transition-transform duration-500" />
                                 </div>
 
                                 {/* Decorative Circle */}
-                                <div className="absolute -top-10 -left-10 w-40 h-40 bg-green-500/10 rounded-full blur-3xl -z-10"></div>
+                                <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#1a5aff]/10 rounded-full blur-3xl -z-10"></div>
                             </motion.div>
                         </div>
 
@@ -490,12 +465,12 @@ export default function TSBuildTechLanding() {
                                 transition={{ duration: 0.8, delay: 0.2 }}
                                 viewport={{ once: true }}
                             >
-                                <span className="inline-block px-4 py-2 bg-green-50 text-green-700 rounded-full font-bold text-xs uppercase tracking-widest mb-6 border border-green-100">
+                                <span className="inline-block px-4 py-2 bg-green-50 text-blue-700 rounded-full font-bold text-xs uppercase tracking-widest mb-6 border border-blue-100">
                                     About The Project
                                 </span>
 
                                 <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 leading-tight">
-                                    Experience <span className="text-green-600">Premium Living</span> on Yamuna Expressway
+                                    Experience <span className="text-[#1a5aff]">Premium Living</span> on Yamuna Expressway
                                 </h2>
 
                                 <p className="text-gray-600 text-lg mb-6 leading-relaxed">
@@ -509,7 +484,7 @@ export default function TSBuildTechLanding() {
                                         { title: "Secure Gated Community", desc: "24/7 CCTV surveillance & walled boundaries" }
                                     ].map((item, i) => (
                                         <div key={i} className="flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100">
-                                            <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 text-green-600">
+                                            <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 text-[#1a5aff]">
                                                 <FaCheckCircle />
                                             </div>
                                             <div>
@@ -530,7 +505,7 @@ export default function TSBuildTechLanding() {
                                     </button>
                                     <button
                                         onClick={() => setShowPopup(true)}
-                                        className="px-8 py-4 bg-white text-gray-900 border-2 border-gray-200 rounded-xl font-bold hover:border-green-500 hover:text-green-600 transition-all duration-300"
+                                        className="px-8 py-4 bg-white text-gray-900 border-2 border-gray-200 rounded-xl font-bold hover:border-[#1a5aff] hover:text-[#1a5aff] transition-all duration-300"
                                     >
                                         Plan A Visit
                                     </button>
@@ -553,7 +528,7 @@ export default function TSBuildTechLanding() {
                 className="relative py-16 md:py-20 bg-gradient-to-br from-green-50 via-white to-blue-50 overflow-hidden"
             >
                 {/* Background Elements */}
-                <div className="absolute top-0 left-0 w-64 h-64 bg-green-100 rounded-full blur-3xl opacity-20 -translate-x-1/2 -translate-y-1/2"></div>
+                <div className="absolute top-0 left-0 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-20 -translate-x-1/2 -translate-y-1/2"></div>
                 <div className="absolute bottom-0 right-0 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-20 translate-x-1/2 translate-y-1/2"></div>
 
                 <div className="container mx-auto px-4 relative z-10">
@@ -634,10 +609,10 @@ export default function TSBuildTechLanding() {
                                     transition={{ delay: i * 0.1 }}
                                     className="flex items-center gap-4 group transition-all"
                                 >
-                                    <div className="w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center text-xs font-bold border-2 border-white shadow-sm flex-shrink-0">
+                                    <div className="w-8 h-8 rounded-full bg-[#1a5aff] text-white flex items-center justify-center text-xs font-bold border-2 border-white shadow-sm flex-shrink-0">
                                         0{i + 1}
                                     </div>
-                                    <span className="text-gray-900 font-bold text-lg group-hover:text-green-600 transition-colors">{item}</span>
+                                    <span className="text-gray-900 font-bold text-lg group-hover:text-[#1a5aff] transition-colors">{item}</span>
                                 </motion.div>
                             ))}
                         </div>
@@ -653,7 +628,7 @@ export default function TSBuildTechLanding() {
                                 <div className="absolute inset-0 bg-black/20"></div>
 
                                 {/* Vertical Text Bar */}
-                                <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-16 md:w-20 bg-green-500/90 backdrop-blur-sm flex items-center justify-center">
+                                <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-16 md:w-20 bg-[#1a5aff]/90 backdrop-blur-sm flex items-center justify-center">
                                     <h2 className="text-white text-3xl md:text-4xl font-bold tracking-widest uppercase" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
                                         Highlights
                                     </h2>
@@ -677,8 +652,8 @@ export default function TSBuildTechLanding() {
                                     transition={{ delay: i * 0.1 }}
                                     className="flex items-center gap-4 group transition-all justify-end text-right"
                                 >
-                                    <span className="text-gray-900 font-bold text-lg group-hover:text-green-600 transition-colors">{item}</span>
-                                    <div className="w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center text-xs font-bold border-2 border-white shadow-sm flex-shrink-0">
+                                    <span className="text-gray-900 font-bold text-lg group-hover:text-[#1a5aff] transition-colors">{item}</span>
+                                    <div className="w-8 h-8 rounded-full bg-[#1a5aff] text-white flex items-center justify-center text-xs font-bold border-2 border-white shadow-sm flex-shrink-0">
                                         0{i + 5}
                                     </div>
                                 </motion.div>
@@ -692,7 +667,7 @@ export default function TSBuildTechLanding() {
             {/* Why Yeida Section - Revamped Full Width */}
             <section id="why-hare-krishna" className="py-24 bg-[#0a0a0a] relative overflow-hidden">
                 {/* Decorative Elements */}
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-green-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#1a5aff]/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
                 <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-500/10 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/2"></div>
 
                 <div className="container mx-auto px-4 relative z-10">
@@ -705,17 +680,17 @@ export default function TSBuildTechLanding() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.7 }}
                         >
-                            <span className="text-green-500 font-bold tracking-widest text-sm uppercase mb-4 block">
+                            <span className="text-[#1a5aff] font-bold tracking-widest text-sm uppercase mb-4 block">
                                 {siteContent.whyYeida.subtitle}
                             </span>
                             <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-white mb-8 leading-tight tracking-tight">
                                 {siteContent.whyYeida.title?.split(' ').map((word, i) => (
-                                    <span key={i} className={i % 2 !== 0 ? "text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-200" : ""}>
+                                    <span key={i} className={i % 2 !== 0 ? "text-transparent bg-clip-text bg-gradient-to-r from-[#1a5aff] to-emerald-200" : ""}>
                                         {word}{' '}
                                     </span>
                                 ))}
                             </h2>
-                            <div className="p-6 bg-white/5 border-x-4 border-green-500 backdrop-blur-sm rounded-lg mx-auto inline-block">
+                            <div className="p-6 bg-white/5 border-x-4 border-[#1a5aff] backdrop-blur-sm rounded-lg mx-auto inline-block">
                                 <p className="text-gray-300 text-lg md:text-xl leading-relaxed italic">
                                     "{siteContent.whyYeida.description}"
                                 </p>
@@ -732,10 +707,10 @@ export default function TSBuildTechLanding() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.05, duration: 0.5 }}
-                                className="flex items-start gap-4 p-6 rounded-xl bg-white/5 border border-white/5 hover:border-green-500/30 hover:bg-white/10 transition-all duration-300 group"
+                                className="flex items-start gap-4 p-6 rounded-xl bg-white/5 border border-white/5 hover:border-[#1a5aff]/30 hover:bg-white/10 transition-all duration-300 group"
                             >
                                 {/* Green Square Number Badge */}
-                                <div className="w-12 h-12 bg-green-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-green-500/20 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                                <div className="w-12 h-12 bg-[#1a5aff] flex items-center justify-center flex-shrink-0 shadow-lg shadow-[#1a5aff]/20 rounded-lg group-hover:scale-110 transition-transform duration-300">
                                     <span className="text-white font-bold text-xl">{i + 1}</span>
                                 </div>
 
@@ -751,7 +726,7 @@ export default function TSBuildTechLanding() {
                     <div className="text-center mt-12">
                         <button
                             onClick={() => setShowPopup(true)}
-                            className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-4 rounded-full font-bold tracking-widest uppercase hover:shadow-green-500/50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+                            className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-blue-600 text-white px-8 py-4 rounded-full font-bold tracking-widest uppercase hover:shadow-[#1a5aff]/50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
                         >
                             Explore Opportunities
                             <FaArrowDown className="transform -rotate-90" />
@@ -773,13 +748,13 @@ export default function TSBuildTechLanding() {
                         viewport={{ once: true }}
                         className="text-center mb-16"
                     >
-                        <span className="text-green-600 font-bold tracking-widest text-sm uppercase mb-3 block">
+                        <span className="text-[#1a5aff] font-bold tracking-widest text-sm uppercase mb-3 block">
                             Success Stories
                         </span>
                         <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
                             What Our Clients Say
                         </h2>
-                        <div className="w-24 h-1.5 bg-green-500 mx-auto rounded-full"></div>
+                        <div className="w-24 h-1.5 bg-[#1a5aff] mx-auto rounded-full"></div>
                     </motion.div>
 
                     <div className="grid md:grid-cols-3 gap-8">
@@ -805,12 +780,12 @@ export default function TSBuildTechLanding() {
                                 </p>
 
                                 <div className="flex items-center gap-4 pt-6 border-t border-gray-100">
-                                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-xl">
+                                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-[#1a5aff] font-bold text-xl">
                                         {testimonial.name.charAt(0)}
                                     </div>
                                     <div>
                                         <p className="font-bold text-gray-900 text-lg">{testimonial.name}</p>
-                                        <p className="text-green-600 text-sm font-medium">Verified Buyer</p>
+                                        <p className="text-[#1a5aff] text-sm font-medium">Verified Buyer</p>
                                     </div>
                                 </div>
                             </motion.div>
@@ -876,7 +851,7 @@ export default function TSBuildTechLanding() {
                 href="https://wa.me/918383091404"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="fixed hidden right-6 bottom-20 w-12 h-12 bg-green-500 hover:scale-105 cursor-pointer transition-all text-white rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 z-50 md:hidden"
+                className="fixed hidden right-6 bottom-20 w-12 h-12 bg-[#1a5aff] hover:scale-105 cursor-pointer transition-all text-white rounded-full flex items-center justify-center shadow-lg hover:bg-[#1a5aff] z-50 md:hidden"
                 aria-label="Chat on WhatsApp"
             >
                 <FaWhatsapp className="text-2xl" />
@@ -1097,7 +1072,7 @@ function PopupForm({ externalShow, setExternalShow }) {
                     >
                         <div className="bg-white rounded-2xl shadow-2xl overflow-hidden w-full max-h-[90vh] flex flex-col border border-gray-100">
                             {/* Premium Header */}
-                            <div className="relative bg-[#0a0a0a] border-b-4 border-green-500 p-6 flex-shrink-0">
+                            <div className="relative bg-[#0a0a0a] border-b-4 border-[#1a5aff] p-6 flex-shrink-0">
                                 <button
                                     onClick={handleClose}
                                     className="absolute top-4 right-4 w-8 h-8 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all text-white/70 hover:text-white"
@@ -1106,7 +1081,7 @@ function PopupForm({ externalShow, setExternalShow }) {
                                 </button>
 
                                 <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center shadow-lg shadow-green-500/20 text-white text-2xl">
+                                    <div className="w-12 h-12 bg-[#1a5aff] rounded-xl flex items-center justify-center shadow-lg shadow-[#1a5aff]/20 text-white text-2xl">
                                         <FaHome />
                                     </div>
                                     <div>
@@ -1128,7 +1103,7 @@ function PopupForm({ externalShow, setExternalShow }) {
                                                 value={formData.name}
                                                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                                 placeholder="Enter your name"
-                                                className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500/20 focus:border-green-500 outline-none transition-all placeholder:text-gray-400 text-gray-900"
+                                                className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500/20 focus:border-[#1a5aff] outline-none transition-all placeholder:text-gray-400 text-gray-900"
                                             />
                                         </div>
 
@@ -1141,7 +1116,7 @@ function PopupForm({ externalShow, setExternalShow }) {
                                                     value={formData.phone}
                                                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                                                     placeholder="+91..."
-                                                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500/20 focus:border-green-500 outline-none transition-all placeholder:text-gray-400 text-gray-900"
+                                                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500/20 focus:border-[#1a5aff] outline-none transition-all placeholder:text-gray-400 text-gray-900"
                                                 />
                                             </div>
                                             <div>
@@ -1151,7 +1126,7 @@ function PopupForm({ externalShow, setExternalShow }) {
                                                     value={formData.city}
                                                     onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                                                     placeholder="Your City"
-                                                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500/20 focus:border-green-500 outline-none transition-all placeholder:text-gray-400 text-gray-900"
+                                                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500/20 focus:border-[#1a5aff] outline-none transition-all placeholder:text-gray-400 text-gray-900"
                                                 />
                                             </div>
                                         </div>
@@ -1165,7 +1140,7 @@ function PopupForm({ externalShow, setExternalShow }) {
                                                     value={formData.email}
                                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                                     placeholder="your@email.com"
-                                                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500/20 focus:border-green-500 outline-none transition-all placeholder:text-gray-400 text-gray-900"
+                                                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500/20 focus:border-[#1a5aff] outline-none transition-all placeholder:text-gray-400 text-gray-900"
                                                 />
                                             </div>
                                             <div>
@@ -1173,7 +1148,7 @@ function PopupForm({ externalShow, setExternalShow }) {
                                                 <select
                                                     value={formData.plotSize}
                                                     onChange={(e) => setFormData({ ...formData, plotSize: e.target.value })}
-                                                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500/20 focus:border-green-500 outline-none transition-all text-gray-700 appearance-none cursor-pointer"
+                                                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500/20 focus:border-[#1a5aff] outline-none transition-all text-gray-700 appearance-none cursor-pointer"
                                                 >
                                                     <option value="">Select Size</option>
                                                     <option value="100 Sq.Yard">100 Sq. Yard</option>
@@ -1191,7 +1166,7 @@ function PopupForm({ externalShow, setExternalShow }) {
                                                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                                 placeholder="I am interested in..."
                                                 rows={2}
-                                                className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500/20 focus:border-green-500 outline-none transition-all placeholder:text-gray-400 text-gray-900 resize-none"
+                                                className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500/20 focus:border-[#1a5aff] outline-none transition-all placeholder:text-gray-400 text-gray-900 resize-none"
                                             ></textarea>
                                         </div>
                                     </div>
@@ -1199,13 +1174,13 @@ function PopupForm({ externalShow, setExternalShow }) {
                                     <button
                                         type="submit"
                                         disabled={loading}
-                                        className="w-full py-4 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white rounded-xl font-bold uppercase tracking-widest shadow-lg shadow-green-500/30 hover:shadow-xl hover:shadow-green-500/40 transition-all transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed mt-2"
+                                        className="w-full py-4 bg-gradient-to-r from-[#1a5aff] to-blue-600 hover:from-green-700 hover:to-emerald-700 text-white rounded-xl font-bold uppercase tracking-widest shadow-lg shadow-[#1a5aff]/30 hover:shadow-xl hover:shadow-[#1a5aff]/40 transition-all transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed mt-2"
                                     >
                                         {loading ? 'Submitting...' : 'Request Callback'}
                                     </button>
 
                                     <p className="text-xs text-center text-gray-400 flex items-center justify-center gap-2">
-                                        <FaShieldAlt className="text-green-500" />
+                                        <FaShieldAlt className="text-[#1a5aff]" />
                                         Your data is secure with us
                                     </p>
                                 </form>
