@@ -2,18 +2,26 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { FaPhone, FaWhatsapp, FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from 'react-icons/fa'
+import { usePathname } from 'next/navigation'
 
 const siteContent = {
     header: {
         // logo: "TS BUILDTECH",
         phone: "+91-83830-91404",
         email: "info@propertiesinsight.com",
-        nav: ["Project", "Amenities", "Plot Size", "Gallery", "Videos", "Why ADA?", "Contact"]
     },
 }
 
 const Header = () => {
     const [activeMenu, setActiveMenu] = useState(false)
+    const pathname = usePathname()
+
+    // Dynamic Navigation Logic
+    const isHareKrishna = pathname?.includes('/hare-krishna-township')
+
+    const navItems = isHareKrishna
+        ? ["Project", "Plot Size", "Why Hare Krishna?"]
+        : ["Project", "Amenities", "Plot Size", "Gallery", "Videos", "Why ADA?", "Contact"]
 
     return (
         <div className='sticky top-0 z-50'>
@@ -42,7 +50,6 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-
             {/* Header */}
             <header className="bg-white shadow-md sticky top-0 z-50">
                 <div className="container mx-auto px-4 py-4">
@@ -55,13 +62,12 @@ const Header = () => {
                             </div>
                         </a>
                         <nav className="hidden lg:flex gap-8">
-                            {siteContent.header.nav.map((item, i) => (
+                            {navItems.map((item, i) => (
                                 <a key={i} href={`#${item.toLowerCase().replace(/\s+/g, '-').replace(/\?/g, '')}`} className="text-gray-700 hover:text-blue-600 font-medium transition">
                                     {item}
                                 </a>
                             ))}
                         </nav>
-
                         <div className="flex gap-3 items-center">
                             <a href='tel:+918383091404'>
                                 <button className="hidden md:block px-6 py-2 border-2 border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition">
@@ -82,7 +88,6 @@ const Header = () => {
                     </div>
                 </div>
             </header>
-
             {/* Mobile Menu */}
             {activeMenu && (
                 <div className="lg:hidden fixed inset-0 z-50" onClick={() => setActiveMenu(false)}>
@@ -99,9 +104,8 @@ const Header = () => {
                                 </svg>
                             </button>
                         </div>
-
                         <nav className="flex flex-col">
-                            {siteContent.header.nav.map((item, i) => (
+                            {navItems.map((item, i) => (
                                 <a
                                     key={i}
                                     href={`#${item.toLowerCase().replace(/\s+/g, '-').replace(/\?/g, '')}`}
@@ -112,7 +116,6 @@ const Header = () => {
                                 </a>
                             ))}
                         </nav>
-
                         <div className="p-6 space-y-3 border-t border-gray-200">
                             <button className="w-full px-6 py-2 border-2 border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition">
                                 Call Now
@@ -121,7 +124,6 @@ const Header = () => {
                                 Free Visit
                             </button>
                         </div>
-
                         <div className="p-6 border-t border-gray-200">
                             <div className="space-y-2 text-sm mb-4">
                                 <div className="flex items-center gap-2">
