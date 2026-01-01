@@ -290,8 +290,8 @@ export default function TSBuildTechLanding() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8 }}
                             >
-                                <div className="inline-flex items-center gap-2 bg-[#1a5aff]/20 border border-[#1a5aff] text-[#1a5aff] px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
-                                    <span className="w-2 h-2 rounded-full bg-[#1a5aff] animate-pulse"></span>
+                                <div className="inline-flex items-center gap-2 bg-[#1a5aff]/20 border border-[#1a5aff] text-white px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
+                                    <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
                                     <span className="font-bold text-sm tracking-widest uppercase">Premium Residential Plots</span>
                                 </div>
 
@@ -447,7 +447,7 @@ export default function TSBuildTechLanding() {
                                 <div className="space-y-4">
                                     <div className="bg-blue-100 p-6 rounded-2xl text-blue-900 border border-blue-200">
                                         <FaCheckCircle className="text-3xl mb-2 text-[#1a5aff]" />
-                                        <p className="font-bold">RERA Approved</p>
+                                        <p className="font-bold">100% Registry and Mutation</p>
                                     </div>
                                     <img src="./2.png" alt="Township View 2" className="w-full h-80 object-cover rounded-2xl shadow-lg hover:scale-105 transition-transform duration-500" />
                                 </div>
@@ -545,45 +545,60 @@ export default function TSBuildTechLanding() {
 
                     {/* Clean Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border-t border-l border-gray-200">
-                        {siteContent.plotSizes.map((plot, i) => (
-                            <div
-                                key={i}
-                                className="group relative bg-white p-8 border-b border-r border-gray-200 hover:bg-gray-50 transition-colors duration-300"
-                            >
-                                {/* Plot Icon */}
-                                <div className="mb-6 opacity-30 group-hover:opacity-100 transition-opacity">
-                                    <svg className="w-12 h-12 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={1.5} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                                    </svg>
-                                </div>
-
-                                {/* Content */}
-                                <div className="space-y-4">
-                                    <div>
-                                        <h3 className="text-3xl font-black text-black">
-                                            {plot.size}
-                                        </h3>
-                                        <p className="text-sm text-gray-500 uppercase tracking-widest mt-1">
-                                            {plot.type}
-                                        </p>
-                                    </div>
-
-                                    <div className="py-4 border-t border-b border-gray-100">
-                                        <div className="flex items-baseline gap-1">
-                                            <span className="text-xl font-bold text-gray-900">{plot.price}</span>
+                        {siteContent.plotSizes.map((plot, i) => {
+                            const isHighlight = plot.size.includes('100');
+                            return (
+                                <div
+                                    key={i}
+                                    className={`group relative p-8 transition-all duration-300 ${isHighlight
+                                        ? 'bg-[#0f172a] text-white border-[#1a5aff] border-2 shadow-2xl z-10 md:-translate-y-4 rounded-xl'
+                                        : 'bg-white border-b border-r border-gray-200 hover:bg-gray-50'
+                                        }`}
+                                >
+                                    {isHighlight && (
+                                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1a5aff] text-white px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase shadow-lg">
+                                            Most Popular
                                         </div>
+                                    )}
+
+                                    {/* Plot Icon */}
+                                    <div className={`mb-6 transition-opacity ${isHighlight ? 'opacity-100' : 'opacity-30 group-hover:opacity-100'}`}>
+                                        <svg className={`w-12 h-12 ${isHighlight ? 'text-[#1a5aff]' : 'text-black'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={1.5} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                                        </svg>
                                     </div>
 
-                                    {/* Action */}
-                                    <button
-                                        onClick={() => setShowPopup(true)}
-                                        className="w-full py-3 bg-white border-2 border-black text-black font-bold text-sm uppercase tracking-wider hover:bg-black hover:text-white transition-all duration-300"
-                                    >
-                                        Enquire Now
-                                    </button>
+                                    {/* Content */}
+                                    <div className="space-y-4">
+                                        <div>
+                                            <h3 className={`text-3xl font-black ${isHighlight ? 'text-white' : 'text-black'}`}>
+                                                {plot.size}
+                                            </h3>
+                                            <p className={`text-sm uppercase tracking-widest mt-1 ${isHighlight ? 'text-gray-400' : 'text-gray-500'}`}>
+                                                {plot.type}
+                                            </p>
+                                        </div>
+
+                                        <div className={`py-4 border-t border-b ${isHighlight ? 'border-gray-700' : 'border-gray-100'}`}>
+                                            <div className="flex items-baseline gap-1">
+                                                <span className={`text-xl font-bold ${isHighlight ? 'text-white' : 'text-gray-900'}`}>{plot.price}</span>
+                                            </div>
+                                        </div>
+
+                                        {/* Action */}
+                                        <button
+                                            onClick={() => setShowPopup(true)}
+                                            className={`w-full py-3 font-bold text-sm uppercase tracking-wider transition-all duration-300 ${isHighlight
+                                                ? 'bg-[#1a5aff] text-white hover:bg-blue-600 rounded-lg shadow-lg shadow-blue-900/50'
+                                                : 'bg-white border-2 border-black text-black hover:bg-black hover:text-white'
+                                                }`}
+                                        >
+                                            Enquire Now
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </div>
             </section>
@@ -650,7 +665,7 @@ export default function TSBuildTechLanding() {
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.1 }}
-                                    className="flex items-center gap-4 group transition-all justify-end text-right"
+                                    className="flex items-center gap-4 group transition-all flex-row-reverse md:flex-row justify-end text-left md:text-right"
                                 >
                                     <span className="text-gray-900 font-bold text-lg group-hover:text-[#1a5aff] transition-colors">{item}</span>
                                     <div className="w-8 h-8 rounded-full bg-[#1a5aff] text-white flex items-center justify-center text-xs font-bold border-2 border-white shadow-sm flex-shrink-0">
@@ -1198,16 +1213,16 @@ function MasterPlanSection() {
     const images = [
         {
             id: 1,
-            thumbnail: "https://jewarproperty.in/hare-krishna-township-phase2/images/floor-plans/nirvana-homes-layout-plan-sm.jpg",
-            full: "https://jewarproperty.in/hare-krishna-township-phase2/images/floor-plans/nirvana-homes-layout-plan-sm.jpg",
+            thumbnail: "./krishna.jpg",
+            full: "./krishna.jpg",
             title: "Site Layout Plan",
             subtitle: "Site Layout Plan",
             description: "Detailed master plan showing plot layouts, amenities, and infrastructure"
         },
         {
             id: 2,
-            thumbnail: "./bsp.png",
-            full: "./bsp.png",
+            thumbnail: "./payment_plan.jpg",
+            full: "./payment_plan.jpg",
             title: "Price List",
             subtitle: "Price List",
             description: "Complete pricing structure"
